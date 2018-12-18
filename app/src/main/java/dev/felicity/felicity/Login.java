@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
         mAuthListener= new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@android.support.annotation.NonNull FirebaseAuth firebaseAuth){
-                if(firebaseAuth.getCurrentUser()!=null && firebaseAuth.getCurrentUser().isEmailVerified()){
+              if(firebaseAuth.getCurrentUser()!=null && firebaseAuth.getCurrentUser().isEmailVerified()){
                     startActivity(new Intent(Login.this, LandingPage.class));
                     finish();
                 }

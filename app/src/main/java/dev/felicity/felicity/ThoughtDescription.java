@@ -31,7 +31,7 @@ public class ThoughtDescription extends AppCompatActivity {
     private RadioButton mNo;
     private TextView mText;
     private EditText mEdit;
-    private HashMap<String,Object> mInfo;
+    private HashMap<String, Object> mInfo;
     private String info1;
 
     @Override
@@ -40,22 +40,21 @@ public class ThoughtDescription extends AppCompatActivity {
         setContentView(R.layout.activity_thought_description);
 
         mNext = findViewById(R.id.next);
-        mText=findViewById(R.id.textView2);
-        mEdit=findViewById(R.id.textView3);
-        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
-        mYes=findViewById(R.id.yes);
-        mNo=findViewById(R.id.no);
-        mGroup=findViewById(R.id.group);
+        mText = findViewById(R.id.textView2);
+        mEdit = findViewById(R.id.textView3);
+        mInfo = (HashMap<String, Object>) getIntent().getSerializableExtra("mInfo");
+        mYes = findViewById(R.id.yes);
+        mNo = findViewById(R.id.no);
+        mGroup = findViewById(R.id.group);
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                info1=mEdit.getText().toString();
-                if(info1.equals("")){
-                    Toast.makeText(ThoughtDescription.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    mInfo.put("ThoughtDescription1",info1);
+                info1 = mEdit.getText().toString();
+                if (info1.equals("")) {
+                    Toast.makeText(ThoughtDescription.this, "Fields cannot be empty", Toast.LENGTH_LONG).show();
+                } else {
+                    mInfo.put("ThoughtDescription1", info1);
                     Intent intentLoadNewActivity = new Intent(ThoughtDescription.this, ThoughtSituation.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                     startActivity(intentLoadNewActivity);
@@ -63,8 +62,7 @@ public class ThoughtDescription extends AppCompatActivity {
             }
         });
 
-        mGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        mGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
@@ -77,49 +75,13 @@ public class ThoughtDescription extends AppCompatActivity {
                         mEdit.setVisibility(View.VISIBLE);
                         break;
                     case 1: // secondbutton
-                        popDialog();
+                        Intent intentLoadNewActivity = new Intent(ThoughtDescription.this, Gratuity.class);
+                        intentLoadNewActivity.putExtra("mInfo", mInfo);
+                        startActivity(intentLoadNewActivity);
                         break;
                 }
             }
         });
 
-    }
-    public void popDialog(){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Would you like to exit the form, or continue practicing CBT with a negative memory?");
-        alertDialogBuilder.setPositiveButton("Continue",
-            new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface arg0, int arg1) {
-                    mText.setVisibility(View.VISIBLE);
-                    mEdit.setVisibility(View.VISIBLE);
-                }
-            });
-
-        alertDialogBuilder.setNegativeButton("Exit",new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                LocalDateTime now = LocalDateTime.now();
-                String date= now.getMonth().toString()+" "+now.getDayOfMonth()+", "+now.getYear();
-
-                DatabaseReference mDatabase= FirebaseDatabase.getInstance().getReference();
-                String mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-                mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                String key = mDatabase.child("Users").child(mUser).child("Journal").child(date).push().getKey();
-                mDatabase.child("Users").child(mUser).child("Journal").child(date).child(key).setValue(now.toString());
-
-                mDatabase.child("Journal").child(key).setValue(mInfo);
-                mInfo.clear();
-
-                Intent intentLoadNewActivity = new Intent(ThoughtDescription.this, LandingPage.class);
-                intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intentLoadNewActivity);
-                finish();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
 }

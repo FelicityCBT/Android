@@ -321,4 +321,5 @@ FELICITY, Inc. is located at 2415 Michigan Avenue, Santa Monica, CA 90404.
     <string name="progress"><b> Maintaining Progress</b></string>
     <string name="symptoms">What symptoms are you feeling? <font color='#e6e6e6'>Select all that apply.</font></string>
     <string name="patterns">Try identifying problematic patterns. <font color="#262626">(Tap the info button on the bottom for assistance)</font> <font color='#e6e6e6'>Select all that apply.</font></string>
+    <string name="title_activity_gratuity">Gratuity</string>
 </resources>
