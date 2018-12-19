@@ -4,8 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +22,10 @@ public class AlternativeInterpretations  extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private EditText mEdit1;
     private EditText mEdit2;
+    private LinearLayout mAddedTextLayout;
+    private Button mAddBtn;
 
+    // TODO: Make an array or something to hold user responses to mEdit2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +35,18 @@ public class AlternativeInterpretations  extends AppCompatActivity {
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
         mEdit1=findViewById(R.id.editText1);
         mEdit2=findViewById(R.id.editText2);
+        mAddedTextLayout=findViewById(R.id.addedTextLayout);
+        mAddBtn = findViewById(R.id.addBtn);
+
+        // Dynamically Add Text
+        mAddBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!mEdit2.getText().toString().equals("")) {
+                    mAddedTextLayout.addView(createNewTextView(mEdit2.getText().toString()));
+                }
+            }
+        });
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,5 +65,14 @@ public class AlternativeInterpretations  extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    // Creates and returns a new TextView to be added to the screen dynamically
+    private TextView createNewTextView(String text) {
+        final ViewGroup.LayoutParams lparams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        final TextView textView = new TextView(this);
+        textView.setLayoutParams(lparams);
+        textView.setText(text);
+        return textView;
     }
 }

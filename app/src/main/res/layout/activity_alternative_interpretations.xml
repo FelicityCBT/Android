@@ -27,9 +27,31 @@
             style="@style/Headers"
             android:text="What are the positives if there are any?" />
 
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/editText2"
-            style="@style/TextBox" />
+        <LinearLayout
+            android:id="@+id/addedTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_back"
+            android:text="Add Another Line" />
+
+
+        <!--<android.support.v7.widget.AppCompatEditText-->
+            <!--android:id="@+id/editText2"-->
+            <!--style="@style/TextBox" />-->
 
 
     </LinearLayout>
