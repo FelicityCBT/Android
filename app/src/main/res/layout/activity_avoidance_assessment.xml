@@ -9,98 +9,101 @@
     android:background="@drawable/gradient_back"
     android:padding="10dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            style="@style/Headers"
-            android:text="What did you avoid?"/>
-
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/addedTextLayoutAvoid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editTextAvoid"
-                android:layout_width="wrap_content"
+            <TextView
+                style="@style/Headers"
+                android:text="What did you avoid?" />
+
+
+            <LinearLayout
+                android:id="@+id/addedTextLayoutAvoid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextAvoid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addBtnAvoid"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_gravity="center"
+                android:background="@drawable/button_back"
+                android:text="Add Line" />
+
+            <TextView
+                style="@style/Headers"
+                android:text="What were the pros and cons of your choice(s)?" />
+
+            <TextView
+                style="@style/Headers"
+                android:layout_marginTop="-10dp"
+                android:text="PROS" />
+
+            <LinearLayout
+                android:id="@+id/addedTextLayoutPros"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextPros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addBtnPros"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_back"
+                android:text="Add line" />
+
+            <TextView
+                style="@style/Headers"
+                android:text="CONS" />
+
+            <LinearLayout
+                android:id="@+id/addedTextLayoutCons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addBtnCons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_back"
+                android:text="Add line" />
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/addBtnAvoid"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_back"
-            android:text="Add Another Line" />
-
-        <TextView
-            style="@style/Headers"
-            android:text="What were the pros and cons of your choice(s)?"/>
-
-        <TextView
-            style="@style/Headers"
-            android:layout_marginTop="-10dp"
-            android:text="PROS" />
-
-        <LinearLayout
-            android:id="@+id/addedTextLayoutPros"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editTextPros"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/addBtnPros"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_back"
-            android:text="Add Another Line" />
-
-        <TextView
-            style="@style/Headers"
-            android:text="CONS" />
-
-        <LinearLayout
-            android:id="@+id/addedTextLayoutCons"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editTextCons"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/addBtnCons"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_back"
-            android:text="Add Another Line" />
-
-    </LinearLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/next"

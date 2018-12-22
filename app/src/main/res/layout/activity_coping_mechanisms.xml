@@ -9,241 +9,237 @@
     android:background="@drawable/gradient_back"
     android:padding="10dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            style="@style/Headers"
-            android:text="What coping mechanisms did you use?"/>
-
-        <!--<android.support.v7.widget.AppCompatEditText-->
-            <!--android:id="@+id/editText1"-->
-            <!--style="@style/TextBox"-->
-            <!--android:layout_marginBottom="10dp"/>-->
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <CheckBox
-                android:id="@+id/checkBox12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Seeking Social Support" />
+            <TextView
+                style="@style/Headers"
+                android:text="What coping mechanisms did you use?" />
 
-            <CheckBox
-                android:id="@+id/checkBox13"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Reappraising the Situation" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/checkBox14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Solving the Problem" />
+                <CheckBox
+                    android:id="@+id/checkBox12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Seeking Social Support" />
 
-            <CheckBox
-                android:id="@+id/checkBox15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Accepting the Situation" />
+                <CheckBox
+                    android:id="@+id/checkBox13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Reappraising the Situation" />
 
-            <CheckBox
-                android:id="@+id/checkBox16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Exercising" />
+                <CheckBox
+                    android:id="@+id/checkBox14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Solving the Problem" />
 
-            <CheckBox
-                android:id="@+id/checkBox17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Eating" />
+                <CheckBox
+                    android:id="@+id/checkBox15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Accepting the Situation" />
 
-            <CheckBox
-                android:id="@+id/checkBox18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Shopping" />
+                <CheckBox
+                    android:id="@+id/checkBox16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Exercising" />
 
-            <CheckBox
-                android:id="@+id/checkBox19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Drinking Alcohol" />
+                <CheckBox
+                    android:id="@+id/checkBox17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Eating" />
 
-            <CheckBox
-                android:id="@+id/checkBox20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Smoking" />
+                <CheckBox
+                    android:id="@+id/checkBox18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Shopping" />
 
-            <CheckBox
-                android:id="@+id/checkBox21"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Consuming Drugs" />
+                <CheckBox
+                    android:id="@+id/checkBox19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Drinking Alcohol" />
 
-            <CheckBox
-                android:id="@+id/checkBox22"
+                <CheckBox
+                    android:id="@+id/checkBox20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Smoking" />
+
+                <CheckBox
+                    android:id="@+id/checkBox21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Consuming Drugs" />
+
+                <CheckBox
+                    android:id="@+id/checkBox22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Keeping Busy" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/Headers"
+                android:text="What didn't you use?" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Keeping Busy" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Seeking Social Support" />
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Reappraising the Situation" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Solving the Problem" />
+
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Accepting the Situation" />
+
+                <CheckBox
+                    android:id="@+id/checkBox5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Exercising" />
+
+                <CheckBox
+                    android:id="@+id/checkBox6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Eating" />
+
+                <CheckBox
+                    android:id="@+id/checkBox7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Shopping" />
+
+                <CheckBox
+                    android:id="@+id/checkBox8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Drinking Alcohol" />
+
+                <CheckBox
+                    android:id="@+id/checkBox9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Smoking" />
+
+                <CheckBox
+                    android:id="@+id/checkBox10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Consuming Drugs" />
+
+                <CheckBox
+                    android:id="@+id/checkBox11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Keeping Busy" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <TextView
-            style="@style/Headers"
-            android:text="What didn't you use?"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Seeking Social Support" />
-
-            <CheckBox
-                android:id="@+id/checkBox2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Reappraising the Situation" />
-
-            <CheckBox
-                android:id="@+id/checkBox3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Solving the Problem" />
-
-            <CheckBox
-                android:id="@+id/checkBox4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Accepting the Situation" />
-
-            <CheckBox
-                android:id="@+id/checkBox5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Exercising" />
-
-            <CheckBox
-                android:id="@+id/checkBox6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Eating" />
-
-            <CheckBox
-                android:id="@+id/checkBox7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Shopping" />
-
-            <CheckBox
-                android:id="@+id/checkBox8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Drinking Alcohol" />
-
-            <CheckBox
-                android:id="@+id/checkBox9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Smoking" />
-
-            <CheckBox
-                android:id="@+id/checkBox10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Consuming Drugs" />
-
-            <CheckBox
-                android:id="@+id/checkBox11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:background="@drawable/button_back"
-                android:layout_marginBottom="5dp"
-                android:text="Keeping Busy" />
-
-        </LinearLayout>
-
-        <!--<android.support.v7.widget.AppCompatEditText-->
-            <!--android:id="@+id/editText2"-->
-            <!--style="@style/TextBox" />-->
-
-
-    </LinearLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/next"
