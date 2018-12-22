@@ -23,7 +23,7 @@ public class AlternativeInterpretations  extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private EditText mEdit1;
     private EditText mEdit2;
-    private ArrayList<String> interpretations; // Holds user responses to "What are the positives..."
+    private ArrayList<String> interpretations = new ArrayList<String>(); // Holds user responses to "What are the positives..."
     private LinearLayout mAddedTextLayout;
     private Button mAddBtn;
 

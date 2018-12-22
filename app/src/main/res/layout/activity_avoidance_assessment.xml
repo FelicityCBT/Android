@@ -19,22 +19,22 @@
 
 
         <LinearLayout
-            android:id="@+id/addedTextLayout"
+            android:id="@+id/addedTextLayoutAvoid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText1"
-                android:layout_height="wrap_content"
+                android:id="@+id/editTextAvoid"
                 android:layout_width="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp" />
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/addBtn"
+            android:id="@+id/addBtnAvoid"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
