@@ -46,6 +46,7 @@ public class AlternativeInterpretations  extends AppCompatActivity {
                 if(!mEdit2.getText().toString().equals("")) {
                     mAddedTextLayout.addView(createNewTextView(mEdit2.getText().toString()));
                     interpretations.add(mEdit2.getText().toString());
+                    mEdit2.setText("");
                 }
             }
         });

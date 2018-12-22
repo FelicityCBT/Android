@@ -65,6 +65,7 @@ public class AvoidanceAssessment  extends AppCompatActivity {
                 if(!mEditAvoid.getText().toString().equals("")) {
                     mLayoutAvoid.addView(createNewTextView(mEditAvoid.getText().toString()));
                     avoided.add(mEditAvoid.getText().toString());
+                    mEditAvoid.setText("");
                 }
             }
         });
@@ -76,6 +77,7 @@ public class AvoidanceAssessment  extends AppCompatActivity {
                 if(!mEditPros.getText().toString().equals("")) {
                     mLayoutPros.addView(createNewTextView(mEditPros.getText().toString()));
                     pros.add(mEditPros.getText().toString());
+                    mEditPros.setText("");
                 }
             }
         });
@@ -87,6 +89,7 @@ public class AvoidanceAssessment  extends AppCompatActivity {
                 if(!mEditCons.getText().toString().equals("")) {
                     mLayoutCons.addView(createNewTextView(mEditCons.getText().toString()));
                     cons.add(mEditCons.getText().toString());
+                    mEditCons.setText("");
                 }
             }
         });

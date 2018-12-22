@@ -57,6 +57,7 @@ public class MaintainingProgress  extends AppCompatActivity {
                 if(!mEditHelped.getText().toString().equals("")) {
                     mLayoutHelped.addView(createNewTextView(mEditHelped.getText().toString()));
                     helped.add(mEditHelped.getText().toString());
+                    mEditHelped.setText("");
                 }
             }
         });
@@ -72,6 +73,7 @@ public class MaintainingProgress  extends AppCompatActivity {
                 if(!mEditNotHelped.getText().toString().equals("")) {
                     mLayoutNotHelped.addView(createNewTextView(mEditNotHelped.getText().toString()));
                     notHelped.add(mEditNotHelped.getText().toString());
+                    mEditNotHelped.setText("");
                 }
             }
         });
