@@ -30,10 +30,11 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        style="@style/Buttons"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="100dp"
-        android:background="@android:color/holo_orange_dark"
+        android:background="@drawable/button_back2"
         android:text="Exit"/>
 
 </RelativeLayout>

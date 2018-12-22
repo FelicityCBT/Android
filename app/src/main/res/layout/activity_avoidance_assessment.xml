@@ -42,7 +42,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/button_back"
+                android:background="@drawable/button_back2"
+                style="@style/Buttons"
                 android:text="Add Line" />
 
             <TextView
@@ -52,7 +53,8 @@
             <TextView
                 style="@style/Headers"
                 android:layout_marginTop="-10dp"
-                android:text="PROS" />
+                android:text="PROS"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/addedTextLayoutPros"
@@ -73,12 +75,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/button_back"
+                style="@style/Buttons"
+                android:background="@drawable/button_back2"
                 android:text="Add line" />
 
             <TextView
                 style="@style/Headers"
-                android:text="CONS" />
+                android:text="CONS"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/addedTextLayoutCons"
@@ -99,7 +103,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/button_back"
+                style="@style/Buttons"
+                android:background="@drawable/button_back2"
                 android:text="Add line" />
 
         </LinearLayout>

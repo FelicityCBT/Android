@@ -9,52 +9,57 @@
     android:background="@drawable/gradient_back"
     android:padding="10dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            style="@style/Headers"
-            android:text="How else can this thought or image be viewed? Consider other ways you could interpret this thought." />
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/editText1"
-            style="@style/TextBox"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            style="@style/Headers"
-            android:text="What are the positives if there are any?" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/addedTextLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="wrap_content"
+            <TextView
+                style="@style/Headers"
+                android:text="How else can this thought or image be viewed? Consider other ways you could interpret this thought." />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/editText1"
+                style="@style/TextBox"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                style="@style/Headers"
+                android:text="What are the positives if there are any?" />
+
+            <LinearLayout
+                android:id="@+id/addedTextLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp" />
+                android:layout_gravity="center"
+                style="@style/Buttons"
+                android:background="@drawable/button_back2"
+                android:text="Add Line" />
+
+
+            <!--<android.support.v7.widget.AppCompatEditText-->
+                <!--android:id="@+id/editText2"-->
+                <!--style="@style/TextBox" />-->
+
+
         </LinearLayout>
-
-        <Button
-            android:id="@+id/addBtn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_back"
-            android:text="Add Another Line" />
-
-
-        <!--<android.support.v7.widget.AppCompatEditText-->
-            <!--android:id="@+id/editText2"-->
-            <!--style="@style/TextBox" />-->
-
-
-    </LinearLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/next"
