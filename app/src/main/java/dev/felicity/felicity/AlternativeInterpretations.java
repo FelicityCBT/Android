@@ -13,6 +13,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AlternativeInterpretations  extends AppCompatActivity {
@@ -22,10 +23,10 @@ public class AlternativeInterpretations  extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private EditText mEdit1;
     private EditText mEdit2;
+    private ArrayList<String> interpretations; // Holds user responses to "What are the positives..."
     private LinearLayout mAddedTextLayout;
     private Button mAddBtn;
 
-    // TODO: Make an array or something to hold user responses to mEdit2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,7 @@ public class AlternativeInterpretations  extends AppCompatActivity {
             public void onClick(View v) {
                 if(!mEdit2.getText().toString().equals("")) {
                     mAddedTextLayout.addView(createNewTextView(mEdit2.getText().toString()));
+                    interpretations.add(mEdit2.getText().toString());
                 }
             }
         });
@@ -52,13 +54,12 @@ public class AlternativeInterpretations  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String info1=mEdit1.getText().toString();
-                String info2=mEdit2.getText().toString();
 
-                if(info1.equals("") || info2.equals("")){
+                if(info1.equals("") || interpretations.size() == 0){
                     Toast.makeText(AlternativeInterpretations.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
                 }else {
                     mInfo.put("AlternativeInterpretations1",info1);
-                    mInfo.put("AlternativeInterpretations2",info2);
+                    mInfo.put("AlternativeInterpretations2",interpretations);
                     Intent intentLoadNewActivity = new Intent(AlternativeInterpretations.this, ThoughtComparison.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                     startActivity(intentLoadNewActivity);
