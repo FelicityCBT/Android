@@ -51,7 +51,7 @@ public class FeelingSelection extends AppCompatActivity {
         buttons[12]=findViewById(R.id.button14);
         buttons[13]=findViewById(R.id.button15);
 
-        mInfo.put("Anger",0);
+        mInfo.put("PreAnger",0);
         mInfo.put("PreWorthlessness",0);
         mInfo.put("PreLethargy",0);
         mInfo.put("PreEmptiness",0);
