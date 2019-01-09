@@ -101,9 +101,9 @@ public class AvoidanceAssessment  extends AppCompatActivity {
                     Toast.makeText(AvoidanceAssessment.this, "Fields cannot be empty", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    mInfo.put("AvoidanceAssessmentAvoided",avoided);
-                    mInfo.put("AvoidanceAssessmentPros",pros);
-                    mInfo.put("AvoidanceAssessmentCons",cons);
+                    mInfo.put("AvoidanceAssessment1",avoided);
+                    mInfo.put("AvoidanceAssessment2",pros);
+                    mInfo.put("AvoidanceAssessment3",cons);
                     Intent intentLoadNewActivity = new Intent(AvoidanceAssessment.this, AlternativeOptions.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                     startActivity(intentLoadNewActivity);

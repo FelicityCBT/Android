@@ -89,8 +89,8 @@ public class MaintainingProgress  extends AppCompatActivity {
                 }
                 else {
                     mInfo.put("MaintainingProgress1",info1);
-                    mInfo.put("MaintainingProgressWhatHelped", helped);
-                    mInfo.put("MaintainingProgressWhatDidntHelp", notHelped);
+                    mInfo.put("MaintainingProgress2", helped);
+                    mInfo.put("MaintainingProgress3", notHelped);
                     Intent intentLoadNewActivity = new Intent(MaintainingProgress.this, FeelingReview.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                     startActivity(intentLoadNewActivity);

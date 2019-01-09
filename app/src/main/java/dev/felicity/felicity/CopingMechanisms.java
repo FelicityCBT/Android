@@ -74,8 +74,8 @@ public class CopingMechanisms  extends AppCompatActivity {
 //                }
 //                else {
 //                    mInfo.put("CopingMechanisms1", info1);
-                mInfo.put("CopingMechanismsUsed", copingMechanismsUsed);
-                mInfo.put("CopingMechanismsNotUsed", copingMechanismsNotUsed);
+                mInfo.put("CopingMechanisms1", copingMechanismsUsed);
+                mInfo.put("CopingMechanisms2", copingMechanismsNotUsed);
                 Intent intentLoadNewActivity = new Intent(CopingMechanisms.this, AvoidanceAssessment.class);
                 intentLoadNewActivity.putExtra("mInfo", mInfo);
                 startActivity(intentLoadNewActivity);
