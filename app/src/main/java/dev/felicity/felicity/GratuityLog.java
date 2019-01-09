@@ -51,6 +51,8 @@ public class GratuityLog  extends AppCompatActivity {
                     Toast.makeText(GratuityLog.this, "Fields cannot be empty", Toast.LENGTH_LONG).show();
                 }
                 else {
+
+                    mInfo.put("GratuityLog1", info1);
                     LocalDateTime now = LocalDateTime.now();
                     String date= now.getMonth().toString()+" "+now.getDayOfMonth()+", "+now.getYear();
 
