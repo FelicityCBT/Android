@@ -42,7 +42,8 @@
         <activity android:name=".FeelingPercentageReview" />
         <activity android:name=".MaintainingProgress" />
         <activity android:name=".FeelingReview" />
-        <activity android:name=".PatternsReview"></activity>
+        <activity android:name=".PatternsReview" />
+        <activity android:name=".PHQ9"></activity>
     </application>
 
 </manifest>
