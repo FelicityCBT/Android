@@ -43,6 +43,9 @@
         <activity android:name=".MaintainingProgress" />
         <activity android:name=".FeelingReview" />
         <activity android:name=".PatternsReview" />
+        <activity android:name=".Gratuity" />
+        <activity android:name=".GratuityLog" />
+        <activity android:name=".GratuityLogFinal"></activity>
         <activity android:name=".PHQ9"></activity>
     </application>
 
