@@ -27,6 +27,7 @@ public class PatternsReview  extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private TextView mText;
     private String display;
+    private boolean survey;
     //private Button btn;
 
     @Override
@@ -63,8 +64,13 @@ public class PatternsReview  extends AppCompatActivity {
 
                 mInfo.clear();
 
+                //for the survey
+                survey = false;
                 //instantiates a alert dialog
                 reviewDialog();
+                //secondaryDialog();
+                //if(survey) {
+                //}
                 //calls the method to pop dialog
                 //move this to a method if exit is clicked in the alert dialogue
                 /*Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
@@ -116,15 +122,35 @@ public class PatternsReview  extends AppCompatActivity {
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
-                intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intentLoadNewActivity);
-                finish();
+                secondaryDialog();
+
             }
         });
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
 
+    }
+    public void secondaryDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Would you like to retake the PHQ survey again?");
+        //Yes button
+        alertDialogBuilder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //page that goes to PHQ survey again
+            }
+        });
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
+                intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentLoadNewActivity);
+                finish();
+            }
+        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }
