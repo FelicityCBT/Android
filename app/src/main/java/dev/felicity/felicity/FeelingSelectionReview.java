@@ -19,8 +19,8 @@ public class FeelingSelectionReview extends AppCompatActivity {
 
     private ImageButton mNext;
     private HashMap<String,Object> mInfo;
-    private Button[] buttons=new Button[9];
-    private boolean [] clicked=new boolean[9];
+    private Button[] buttons=new Button[14];
+    private boolean [] clicked=new boolean[14];
     private ArrayList<String> selected= new ArrayList<String>();
 
     @Override
@@ -30,7 +30,7 @@ public class FeelingSelectionReview extends AppCompatActivity {
 
         mNext = findViewById(R.id.next);
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
-        clicked= new boolean[9];
+        clicked= new boolean[14];
 
         for(int i=0;i<clicked.length;i++){
             clicked[i]=false;
@@ -45,6 +45,12 @@ public class FeelingSelectionReview extends AppCompatActivity {
         buttons[6]=findViewById(R.id.button8);
         buttons[7]=findViewById(R.id.button9);
         buttons[8]=findViewById(R.id.button10);
+        buttons[9]=findViewById(R.id.button11);
+        buttons[10]=findViewById(R.id.button12);
+        buttons[11]=findViewById(R.id.button13);
+        buttons[12]=findViewById(R.id.button14);
+        buttons[13]=findViewById(R.id.button15);
+
         mInfo.put("PostAnger",0);
         mInfo.put("PostWorthlessness",0);
         mInfo.put("PostLethargy",0);
@@ -54,6 +60,11 @@ public class FeelingSelectionReview extends AppCompatActivity {
         mInfo.put("PostIrritation",0);
         mInfo.put("PostShame",0);
         mInfo.put("PostFrustration",0);
+        mInfo.put("PostSensitive",0);
+        mInfo.put("PostFear",0);
+        mInfo.put("PostNervousness",0);
+        mInfo.put("PostVulnerable",0);
+        mInfo.put("PostPanic",0);
 
 
 

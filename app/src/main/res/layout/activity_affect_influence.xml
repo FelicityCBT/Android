@@ -16,7 +16,7 @@
 
         <TextView
             style="@style/Headers"
-            android:text="How do these sensations affect your behavior?" />
+            android:text="How did these sensations affect your behavior?" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/editText1"
