@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_back"
+    android:padding="10dp"
+    tools:context=".PHQ9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Headers"
+            android:padding="0dp"
+            android:text="PHQ-9"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/HeaderText2"
+            style="@style/Headers"
+            android:layout_width="wrap_content"
+            android:text="Over the last 2 weeks, how often have you been bothered by any of the following problems?"
+            android:textSize="17dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Little interest or pleasure in doing things:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg1">
+
+                    <RadioButton
+                        android:id="@+id/a1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Feeling down, depressed, or hopeless:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg2">>
+
+                    <RadioButton
+                        android:id="@+id/a2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Trouble falling or staying asleep, or sleeping too much:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg3">>
+
+                    <RadioButton
+                        android:id="@+id/a3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Feeling tired or having little energy :"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg4">>
+
+                    <RadioButton
+                        android:id="@+id/a4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text=" Poor appetite or overeating:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg5">>
+
+                    <RadioButton
+                        android:id="@+id/a5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text=" Feeling bad about yourself — or that you are a failure or
+have let yourself or your family down:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg6">>
+
+                    <RadioButton
+                        android:id="@+id/a6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Trouble concentrating on things, such as reading the
+newspaper or watching television:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg7">>
+
+                    <RadioButton
+                        android:id="@+id/a7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView13"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Moving or speaking so slowly that other people could have
+noticed? Or the opposite — being so fidgety or restless
+that you have been moving around a lot more than usual:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg8">>
+
+                    <RadioButton
+                        android:id="@+id/a8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView14"
+                    style="@style/Headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:padding="0dp"
+                    android:text="Thoughts that you would be better off dead or of hurting
+yourself in some way:"
+                    android:textSize="15dp" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rg9">>
+
+                    <RadioButton
+                        android:id="@+id/a9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Not at all " />
+
+                    <RadioButton
+                        android:id="@+id/b9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Several days" />
+
+                    <RadioButton
+                        android:id="@+id/c9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="More than half the days" />
+
+                    <RadioButton
+                        android:id="@+id/d9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_back"
+                        android:fontFamily="casual"
+                        android:text="Nearly every day" />
+                </RadioGroup>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancel"
+                android:background="@drawable/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+id/submit"
+                android:background="@drawable/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Submit" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
