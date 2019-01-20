@@ -53,8 +53,6 @@
             android:text="Login" />
 
 
-
-
         <TextView
             android:id="@+id/signup"
             android:layout_width="match_parent"
@@ -65,6 +63,17 @@
             android:clickable="true"
             android:onClick="goToSignUp"
             android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/forgotPw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="goToSignUp"
+            android:text="Forgot Password"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
