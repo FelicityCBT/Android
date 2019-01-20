@@ -65,13 +65,13 @@
             android:layout_marginTop="20dp"/>
 
         <TextView
-            android:id="@+id/forgotPw"
+            android:id="@+id/forgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:clickable="true"
             android:gravity="center"
-            android:onClick="goToSignUp"
+            android:onClick="goToForgotPassword"
             android:text="Forgot Password"
             android:textColor="#FFFFFF" />
 

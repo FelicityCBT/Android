@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
     private EditText mEmail;
     private EditText mPassword;
     private android.widget.TextView mSignup;
+    private android.widget.TextView mForgotPassword;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -34,6 +35,7 @@ public class Login extends AppCompatActivity {
         mLoginButton= findViewById(R.id.login);
         mAuth= FirebaseAuth.getInstance();
         mSignup= findViewById(R.id.signup);
+        mForgotPassword = findViewById(R.id.forgotPassword);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +86,10 @@ public class Login extends AppCompatActivity {
 
     public void goToSignUp(View v){
         startActivity(new Intent(Login.this, Signup.class));
+    }
+
+    public void goToForgotPassword(View v) {
+        startActivity(new Intent(Login.this, ForgotPassword.class));
     }
 
 }
