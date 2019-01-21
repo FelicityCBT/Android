@@ -11,6 +11,7 @@ public class LandingPage extends AppCompatActivity {
 
     private Button mSessionButton;
     private Button mSignout;
+    private Button mPHQ9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +20,20 @@ public class LandingPage extends AppCompatActivity {
 
         mSessionButton = findViewById(R.id.session);
         mSignout=findViewById(R.id.logout);
+        mPHQ9=findViewById(R.id.phq9);
 
         mSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(LandingPage.this, CbtIntro.class);
+                startActivity(intentLoadNewActivity);
+            }
+        });
+
+        mPHQ9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentLoadNewActivity = new Intent(LandingPage.this, PHQ9.class);
                 startActivity(intentLoadNewActivity);
             }
         });

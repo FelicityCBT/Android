@@ -46,6 +46,7 @@
         <activity android:name=".Gratuity" />
         <activity android:name=".GratuityLog" />
         <activity android:name=".GratuityLogFinal"></activity>
+        <activity android:name=".PHQ9"></activity>
     </application>
 
 </manifest>
