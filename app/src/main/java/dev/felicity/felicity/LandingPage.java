@@ -32,6 +32,7 @@ public class LandingPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 com.google.firebase.auth.FirebaseAuth.getInstance().signOut();
+                com.facebook.login.LoginManager.getInstance().logOut();
                 Intent intentLoadNewActivity = new Intent(LandingPage.this, Login.class);
                 intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentLoadNewActivity);
