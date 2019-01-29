@@ -12,7 +12,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="60dp">
+        android:layout_marginBottom="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,18 +39,55 @@
                 style="@style/Headers"
                 android:text="What helped?" />
 
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/editText2"
-                style="@style/TextBox"
-                android:layout_marginBottom="10dp" />
+            <LinearLayout
+                android:id="@+id/addedTextLayoutHelped"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextHelped"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addBtnHelped"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/Buttons"
+                android:background="@drawable/button_back2"
+                android:text="Add line"/>
 
             <TextView
                 style="@style/Headers"
                 android:text="What didn't?" />
 
-            <android.support.v7.widget.AppCompatEditText
-                android:id="@+id/editText3"
-                style="@style/TextBox" />
+            <LinearLayout
+                android:id="@+id/addedTextLayoutNotHelped"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextNotHelped"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addBtnNotHelped"
+                style="@style/Buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_back2"
+                android:text="Add line" />
 
 
         </LinearLayout>
