@@ -12,6 +12,7 @@ public class LandingPage extends AppCompatActivity {
     private Button mSessionButton;
     private Button mSignout;
     private Button mPHQ9;
+    private Button mBlankSessionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class LandingPage extends AppCompatActivity {
         mSessionButton = findViewById(R.id.session);
         mSignout=findViewById(R.id.logout);
         mPHQ9=findViewById(R.id.phq9);
+        mBlankSessionButton=findViewById(R.id.blankSession);
 
         mSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,5 +50,13 @@ public class LandingPage extends AppCompatActivity {
                 finish();
             }
         });
+
+       mBlankSessionButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intentLoadNewActivity = new Intent(LandingPage.this, BlankSession.class);
+               startActivity(intentLoadNewActivity);
+           }
+       });
     }
 }

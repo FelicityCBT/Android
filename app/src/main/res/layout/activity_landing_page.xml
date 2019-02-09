@@ -41,6 +41,15 @@
             android:text="Log A Session" />
 
         <android.support.v7.widget.AppCompatButton
+            android:id="@+id/blankSession"
+            style="@style/Buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_back2"
+            android:text="Log A Blank Journal Session" />
+
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/phq9"
             style="@style/Buttons"
             android:background="@drawable/button_back2"
