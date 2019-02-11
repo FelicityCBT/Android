@@ -58,6 +58,10 @@ public class BlankSession extends AppCompatActivity {
 
                     mInfo.clear();
 
+                    // Go back to Landing Page
+                    Intent intentLoadNewActivity = new Intent(BlankSession.this, LandingPage.class);
+                    startActivity(intentLoadNewActivity);
+
                 }
             }
         });
