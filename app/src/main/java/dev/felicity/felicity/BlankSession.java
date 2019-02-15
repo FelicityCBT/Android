@@ -46,6 +46,8 @@ public class BlankSession extends AppCompatActivity {
                 } else {
                     mInfo.put("BlankSession1", info1);
 
+//                    Toast.makeText(BlankSession.this, info1, Toast.LENGTH_LONG).show();
+
                     // Submit data to database
                     LocalDateTime now = LocalDateTime.now();
                     String date= now.getMonth().toString()+" "+now.getDayOfMonth()+", "+now.getYear();
