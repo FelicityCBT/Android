@@ -42,6 +42,7 @@ public class FeelingReview  extends AppCompatActivity {
                     Toast.makeText(FeelingReview.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
                 }
                 else{
+                    // TODO: Change to ResponseOverview Page
                     Intent intentLoadNewActivity = new Intent(FeelingReview.this, PatternsReview.class);
                     mInfo.put("FeelingReview1",info2);
                     intentLoadNewActivity.putExtra("mInfo",mInfo);

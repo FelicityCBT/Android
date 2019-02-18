@@ -30,7 +30,7 @@ public class BlankSession extends AppCompatActivity {
         setContentView(R.layout.activity_blank_session);
 
         mNext = findViewById(R.id.next);
-        mInfo = (HashMap<String, Object>)getIntent().getSerializableExtra("mInfo");
+        mInfo = new HashMap<>();
         mEdit = findViewById(R.id.editBlank);
         info1 = "";
         mDatabase = FirebaseDatabase.getInstance().getReference();
