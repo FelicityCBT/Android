@@ -43,6 +43,7 @@ public class FeelingReview  extends AppCompatActivity {
                 }
                 else{
                     // TODO: Change to ResponseOverview Page
+                    // Intent intentLoadNewActivity = new Intent(FeelingReview.this, ResponseOverview.class);
                     Intent intentLoadNewActivity = new Intent(FeelingReview.this, PatternsReview.class);
                     mInfo.put("FeelingReview1",info2);
                     intentLoadNewActivity.putExtra("mInfo",mInfo);

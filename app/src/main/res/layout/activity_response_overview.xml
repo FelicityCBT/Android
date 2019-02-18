@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_back"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Headers"
+                android:layout_marginBottom="0dp"
+                android:text="Response Overview"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/Headers"
+                android:layout_marginBottom="0dp"
+                android:text="Emotions selected at the beginning of the survey:" />
+
+            <!-- TODO: Add emotions here -->
+
+            <TextView
+                style="@style/Headers"
+                android:layout_marginBottom="0dp"
+                android:text="Emotions selected at the end of the survey:" />
+
+            <!-- TODO: Add emotions here -->
+
+
+            <!-- Pros and Cons -->
+            <TextView
+                style="@style/Headers"
+                android:layout_marginBottom="0dp"
+                android:text="Pros and cons of your choices and actions:" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pros"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/cons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cons"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <!-- Problematic Patterns -->
+            <TextView
+                style="@style/Headers"
+                android:layout_marginBottom="0dp"
+                android:text="Problematic patterns of thinking identified:" />
+
+            <TextView
+                android:id="@+id/problematicPatterns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Problematic Pattern here" />
+
+            <TextView
+                style="@style/Headers"
+                android:layout_marginBottom="0dp"
+                android:text="If you would like to help improve this app by providing feedback, please fill out this survey." />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
