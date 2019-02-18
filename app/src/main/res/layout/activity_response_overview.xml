@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_back"
     android:padding="10dp">
 
@@ -48,6 +48,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/Headers"
                     android:id="@+id/pros"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,6 +57,7 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    style="@style/Headers"
                     android:id="@+id/cons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,20 +73,39 @@
                 android:text="Problematic patterns of thinking identified:" />
 
             <TextView
+                style="@style/Headers"
                 android:id="@+id/problematicPatterns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="Problematic Pattern here" />
+                android:gravity="center" />
 
-            <TextView
-                style="@style/Headers"
-                android:layout_marginBottom="0dp"
-                android:text="If you would like to help improve this app by providing feedback, please fill out this survey." />
+            <!--<TextView-->
+                <!--style="@style/Headers"-->
+                <!--android:layout_marginBottom="0dp"-->
+                <!--android:text="If you would like to help improve this app by providing feedback, please fill out this survey." />-->
 
 
         </LinearLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/right"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="96"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
