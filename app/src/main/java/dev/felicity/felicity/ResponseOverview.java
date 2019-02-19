@@ -9,12 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +28,8 @@ public class ResponseOverview extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private String mUser;
     // TODO: Add before emotions and after emotions
+    private LinearLayout mEmotionsStartLayout;
+    private LinearLayout mEmotionsEndLayout;
     private String prosDisplay;
     private TextView mText3;
     private String consDisplay;
@@ -33,6 +37,9 @@ public class ResponseOverview extends AppCompatActivity {
     private String problematicPatternsDisplay;
     private TextView mText5;
     private boolean survey;
+
+    public ResponseOverview() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +51,43 @@ public class ResponseOverview extends AppCompatActivity {
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-
         /***** Set display for before-emotions *****/
+        ArrayList<String> emotionsStart = (ArrayList<String>)mInfo.get("SituationDescription2");
+        mEmotionsStartLayout = findViewById(R.id.emotionsStart);
+        for(String emotion: emotionsStart) {    // Create an ImageView on each emotion
+            int emotionSrc = 0;
+            switch(emotion) {
+                case "Loved":
+                    emotionSrc = R.drawable.loved1;
+                    break;
+                case "Happy":
+                    emotionSrc = R.drawable.happy1;
+                    break;
+                case "Sad":
+                    emotionSrc = R.drawable.sad1;
+                    break;
+                case "Tired":
+                    emotionSrc = R.drawable.tired1;
+                    break;
+                case "Nervous":
+                    emotionSrc = R.drawable.nervous1;
+                    break;
+                case "Angry":
+                    emotionSrc = R.drawable.angry;
+                    break;
+                case "Okay":
+                    emotionSrc = R.drawable.okay1;
+                    break;
+                default:
+                    break;
+            }
+            ImageView emotionImg = new ImageView(ResponseOverview.this);
+            emotionImg.setBackgroundResource(emotionSrc);
+            mEmotionsStartLayout.addView(emotionImg);
+        }
 
         /***** Set display for after-emotions *****/
+        ArrayList<String> emotionsEnd = (ArrayList<String>)mInfo.get("FeelingReview1");
 
         /***** Set display for pros *****/
         prosDisplay = "";
@@ -92,6 +132,7 @@ public class ResponseOverview extends AppCompatActivity {
                 mInfo.clear();
 
                 survey = false;
+
                 //instantiates a alert dialog
                 reviewDialog();
 
@@ -101,7 +142,7 @@ public class ResponseOverview extends AppCompatActivity {
 
     }
 
-
+    /***** Function handling user wanting to write feedback *****/
     public void reviewDialog(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Would you like to offer feedback for Felicity?");

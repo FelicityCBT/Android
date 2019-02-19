@@ -21,22 +21,35 @@
                 android:text="Response Overview"
                 android:textStyle="bold" />
 
+            <!-- Emotions Start -->
             <TextView
                 style="@style/Headers"
                 android:layout_marginBottom="0dp"
                 android:text="Emotions selected at the beginning of the survey:" />
 
-            <!-- TODO: Add emotions here -->
+            <LinearLayout
+                android:id="@+id/emotionsStart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
+            <!-- Emotions End -->
             <TextView
                 style="@style/Headers"
                 android:layout_marginBottom="0dp"
                 android:text="Emotions selected at the end of the survey:" />
 
             <!-- TODO: Add emotions here -->
+            <LinearLayout
+                android:id="@+id/emotionsAfter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
 
 
             <!-- Pros and Cons -->
+
             <TextView
                 style="@style/Headers"
                 android:layout_marginBottom="0dp"
@@ -53,7 +66,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pros"
                     android:textAlignment="center" />
 
                 <TextView
@@ -62,7 +74,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Cons"
                     android:textAlignment="center" />
             </LinearLayout>
 
