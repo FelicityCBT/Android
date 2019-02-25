@@ -31,7 +31,9 @@
                 android:id="@+id/emotionsStart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal">
+
+            </LinearLayout>
 
             <!-- Emotions End -->
             <TextView
@@ -44,8 +46,9 @@
                 android:id="@+id/emotionsAfter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal">
 
+            </LinearLayout>
 
 
             <!-- Pros and Cons -->
@@ -61,16 +64,16 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/Headers"
                     android:id="@+id/pros"
+                    style="@style/Headers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center" />
 
                 <TextView
-                    style="@style/Headers"
                     android:id="@+id/cons"
+                    style="@style/Headers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -84,17 +87,17 @@
                 android:text="Problematic patterns of thinking identified:" />
 
             <TextView
-                style="@style/Headers"
                 android:id="@+id/problematicPatterns"
+                style="@style/Headers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center" />
 
             <!--<TextView-->
-                <!--style="@style/Headers"-->
-                <!--android:layout_marginBottom="0dp"-->
-                <!--android:text="If you would like to help improve this app by providing feedback, please fill out this survey." />-->
+            <!--style="@style/Headers"-->
+            <!--android:layout_marginBottom="0dp"-->
+            <!--android:text="If you would like to help improve this app by providing feedback, please fill out this survey." />-->
 
 
         </LinearLayout>
