@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Felicity</string>
     <string name="feelings_prompt">Select</string>
+    <string name="facebook_app_id">1195134297318865</string>
+    <string name="fb_login_protocol_scheme">fb1195134297318865</string>
 
     <string-array name="feelings">
         <item>SELECT</item>
