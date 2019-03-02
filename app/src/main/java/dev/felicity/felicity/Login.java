@@ -73,7 +73,7 @@ public class Login extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
-        //google sign in options and stuff
+        /*//google sign in options and stuff
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -91,7 +91,7 @@ public class Login extends AppCompatActivity {
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent,RC_SIGN_IN);
             }
-        });
+        });*/
 
 
         mEmail= findViewById(R.id.email);
@@ -150,7 +150,7 @@ public class Login extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -205,7 +205,7 @@ public class Login extends AppCompatActivity {
 
         mAuth.addAuthStateListener(mAuthListener);
         FirebaseUser currentUser = mFacebook.getCurrentUser();
-    }
+    }*/
 
     private void startSignIn(){
         String email= mEmail.getText().toString();

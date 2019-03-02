@@ -52,11 +52,11 @@
             android:background="@drawable/button_back2"
             android:text="Login" />
 
-        <!-- google sign in button -->
+        <!-- google sign in button
         <com.google.android.gms.common.SignInButton
             android:id="@+id/googleBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" /> -->
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"

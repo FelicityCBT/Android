@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,6 +61,7 @@ public class ResponseOverview extends AppCompatActivity {
         int emotionSrc = getEmotionImgSrc(emotionBefore);
         ImageView emotionImg = new ImageView(ResponseOverview.this);
         emotionImg.setBackgroundResource(emotionSrc);
+        mEmotionsStartLayout.setGravity(Gravity.CENTER);
         mEmotionsStartLayout.addView(emotionImg);
 
         /***** Set display for after-emotions *****/
@@ -68,6 +70,7 @@ public class ResponseOverview extends AppCompatActivity {
         emotionSrc = getEmotionImgSrc(emotionAfter);
         emotionImg = new ImageView(ResponseOverview.this);
         emotionImg.setBackgroundResource(emotionSrc);
+        mEmotionsEndLayout.setGravity(Gravity.CENTER);
         mEmotionsEndLayout.addView(emotionImg);
 
         /***** Set display for pros *****/

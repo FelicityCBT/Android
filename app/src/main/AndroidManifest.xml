@@ -48,7 +48,7 @@
         <activity android:name=".PatternsReview" />
         <activity android:name=".Gratuity" />
         <activity android:name=".GratuityLog" />
-        <activity android:name=".GratuityLogFinal" />
+        <!--<activity android:name=".GratuityLogFinal" />-->
         <activity android:name=".PHQ9" />
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
