@@ -128,7 +128,7 @@ public class Login extends AppCompatActivity {
                 startSignIn();
             }
         });
-
+        /*
         mAuthListener= new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@android.support.annotation.NonNull FirebaseAuth firebaseAuth){
@@ -139,6 +139,7 @@ public class Login extends AppCompatActivity {
 
             }
         };
+        */
 
     }
 
@@ -224,6 +225,9 @@ public class Login extends AppCompatActivity {
                     else if(!mAuth.getCurrentUser().isEmailVerified()){
                         Toast.makeText(Login.this,"You must verify email first",Toast.LENGTH_LONG).show();
                         mAuth.signOut();
+                    } else {
+                        startActivity(new Intent(Login.this, LandingPage.class));
+                        finish();
                     }
                 }
             });
