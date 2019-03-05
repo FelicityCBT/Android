@@ -2,6 +2,7 @@ package dev.felicity.felicity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.content.Intent;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class AlternativeInterpretations  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!mEdit2.getText().toString().equals("")) {
+                    mAddedTextLayout.setGravity(Gravity.CENTER);
                     mAddedTextLayout.addView(createNewTextView(mEdit2.getText().toString()));
                     interpretations.add(mEdit2.getText().toString());
                     mEdit2.setText("");
@@ -75,6 +77,8 @@ public class AlternativeInterpretations  extends AppCompatActivity {
         final TextView textView = new TextView(this);
         textView.setLayoutParams(lparams);
         textView.setText(text);
+        textView.setPadding(5,5,5,5);
+        textView.setTextAppearance(R.style.Headers);
         return textView;
     }
 }

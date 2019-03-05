@@ -1,10 +1,9 @@
 package dev.felicity.felicity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.content.Intent;
-import android.widget.EditText;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -34,7 +33,7 @@ public class SituationDescription extends AppCompatActivity {
         buttons[3]=findViewById(R.id.Angry);
         buttons[4]=findViewById(R.id.Sad);
         buttons[5]=findViewById(R.id.Tired);
-        buttons[6]=findViewById(R.id.Okay);
+        buttons[6]=findViewById(R.id.Okay1);
         mBar=findViewById(R.id.seekBar2);
 
         mBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
@@ -104,7 +103,7 @@ public class SituationDescription extends AppCompatActivity {
                             info2="Angry";
                             break;
 
-                        case R.id.Okay:
+                        case R.id.Okay1:
                             info2="Okay";
                             break;
 
