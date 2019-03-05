@@ -19,11 +19,11 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FELICITY"
             android:fontFamily="casual"
+            android:text="FELICITY"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="50dp"/>
+            android:textSize="50dp" />
 
         <ImageView
             android:id="@+id/imageView3"

@@ -64,10 +64,25 @@ public class PatternsReview  extends AppCompatActivity {
 
                 mInfo.clear();
 
+<<<<<<< HEAD
                 survey = false;
                 //instantiates a alert dialog
                 reviewDialog();
 
+=======
+                //for the survey
+                survey = false;
+                //instantiates a alert dialog
+                reviewDialog();
+                //secondaryDialog();
+                //if(survey) {
+                //}
+                //calls the method to pop dialog
+                //move this to a method if exit is clicked in the alert dialogue
+                /*Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
+                intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intentLoadNewActivity);*/
+>>>>>>> origin/samBranch
 
             }
         });
@@ -131,9 +146,12 @@ public class PatternsReview  extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //page that goes to PHQ survey again
+<<<<<<< HEAD
                 Intent intentLoadNewActivity = new Intent(PatternsReview.this, PHQ9.class);
                 intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentLoadNewActivity);
+=======
+>>>>>>> origin/samBranch
             }
         });
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {

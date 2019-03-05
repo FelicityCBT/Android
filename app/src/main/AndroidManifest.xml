@@ -43,10 +43,13 @@
         <activity android:name=".MaintainingProgress" />
         <activity android:name=".FeelingReview" />
         <activity android:name=".PatternsReview" />
+<<<<<<< HEAD
         <activity android:name=".Gratuity" />
         <activity android:name=".GratuityLog" />
         <activity android:name=".GratuityLogFinal"></activity>
         <activity android:name=".PHQ9"></activity>
+=======
+>>>>>>> origin/samBranch
     </application>
 
 </manifest>

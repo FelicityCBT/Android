@@ -40,38 +40,39 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     SignInButton button;
-    private final static int RC_SIGN_IN = 2;
+    private final static int RC_SIGN_IN = 1;
     GoogleSignInClient mGoogleSignInClient;
+    private String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //google sign in options and stuff
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        // Build a GoogleSignInClient with the options specified by gso.
-
-        mGoogleSignInClient= GoogleSignIn.getClient(this, gso);
-
-
         //google button signin
         button = findViewById(R.id.googleBtn);
+        //moved this line from down there up
+        mAuth= FirebaseAuth.getInstance();
+        //google sign in options and stuff
+        //step 1
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("961359328033-jhlaa6pl6gdh2trrn2vjpgm8sfn8fekh.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+        //step 2
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //sign in stuff
-                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent,RC_SIGN_IN);
+                signIn();
             }
         });
 
         mEmail= findViewById(R.id.email);
         mPassword=findViewById(R.id.password);
         mLoginButton= findViewById(R.id.login);
-        mAuth= FirebaseAuth.getInstance();
         mSignup= findViewById(R.id.signup);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +85,7 @@ public class Login extends AppCompatActivity {
         mAuthListener= new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@android.support.annotation.NonNull FirebaseAuth firebaseAuth){
-              if(firebaseAuth.getCurrentUser()!=null && firebaseAuth.getCurrentUser().isEmailVerified()){
+                if(firebaseAuth.getCurrentUser()!=null /*&& firebaseAuth.getCurrentUser().isEmailVerified()*/){
                     startActivity(new Intent(Login.this, LandingPage.class));
                     finish();
                 }
@@ -93,8 +94,18 @@ public class Login extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
 
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
 
+    //copied from firebase
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -108,7 +119,8 @@ public class Login extends AppCompatActivity {
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-
+                Log.w(TAG, "Google sign in failed", e);
+                Toast.makeText(Login.this, "Auth went wrong", Toast.LENGTH_LONG).show();
                 // ...
             }
         }
@@ -122,15 +134,14 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i = new Intent(getApplicationContext(), ContactsContract.Profile.class   );
-                            startActivity(i);
-                            finish();
-                            Toast.makeText(getApplicationContext(),"User logged in successfully", Toast.LENGTH_SHORT).show();
-
+                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(getApplicationContext(),"Could not log in user", Toast.LENGTH_SHORT).show();
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(Login.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
                         }
 
                         // ...
@@ -138,16 +149,6 @@ public class Login extends AppCompatActivity {
                 });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        //google login stuff
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        //google login stuff
-
-        mAuth.addAuthStateListener(mAuthListener);
-    }
 
     private void startSignIn(){
         String email= mEmail.getText().toString();
