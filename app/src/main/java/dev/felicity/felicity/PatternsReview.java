@@ -24,6 +24,7 @@ public class PatternsReview  extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private String mUser;
     private HashMap<String,Object> mInfo;
+    private HashMap<String,Object> mDemographics;
     private TextView mText;
     private String display;
     //private Button btn;
@@ -36,6 +37,7 @@ public class PatternsReview  extends AppCompatActivity {
         mNext = findViewById(R.id.finish);
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //mDemographics = (HashMap<String,Object>)getIntent().getSerializableExtra("mDemographics");
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
         mText= findViewById(R.id.text);
         //btn=findViewById(R.id.res);
@@ -54,14 +56,15 @@ public class PatternsReview  extends AppCompatActivity {
                 LocalDateTime now = LocalDateTime.now();
                 String date= now.getMonth().toString()+" "+now.getDayOfMonth()+", "+now.getYear();
 
+
                 mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                 String key = mDatabase.child("Users").child(mUser).child("Journal").child(date).push().getKey();
                 mDatabase.child("Users").child(mUser).child("Journal").child(date).child(key).setValue(now.toString());
-
+               // mDatabase.child("Users").child(mUser).child("Demographics").setValue("Test");
                 mDatabase.child("Journal").child(key).setValue(mInfo);
 
                 mInfo.clear();
-
+                //mDemographics.clear();
                 Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
                 intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentLoadNewActivity);
