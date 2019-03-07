@@ -264,7 +264,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/Okay"
+                            android:id="@+id/Okay1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"

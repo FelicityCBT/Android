@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/textView2"
             style="@style/Headers"
-            android:text="What thought or image impacted you the most or made you upset the most"/>
+            android:text="What thought or image impacted you the most or made you upset the most?"/>
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/edit"

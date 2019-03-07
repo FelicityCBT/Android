@@ -15,7 +15,7 @@
         android:orientation="vertical">
         <TextView
             style="@style/Headers"
-            android:text="Imagine alternative thoughts or actions you could have taken"/>
+            android:text="Imagine alternative thoughts or actions you could have taken."/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -31,9 +31,8 @@
                     android:layout_width="match_parent"
                     android:text="Thought/ Action" />
 
-                <android.support.v7.widget.AppCompatEditText
+                <EditText
                     android:id="@+id/edit1"
-                    style="@style/TextBox"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:windowSoftInputMode="stateHidden" />
