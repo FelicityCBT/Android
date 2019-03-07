@@ -11,6 +11,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AlternativeOptions  extends AppCompatActivity {
@@ -21,7 +22,9 @@ public class AlternativeOptions  extends AppCompatActivity {
     private Button mButton;
     private EditText mEdit1;
     private EditText mEdit2;
-    private HashMap<String,String> altMap= new HashMap<String, String>();
+    private HashMap<String,ArrayList> altMap= new HashMap<>();
+    private ArrayList<String> thoughts= new ArrayList<String>();
+    private ArrayList<String> effect= new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +42,17 @@ public class AlternativeOptions  extends AppCompatActivity {
             public void onClick(View v) {
                 String info1 = mEdit1.getText().toString();
                 String info2 = mEdit2.getText().toString();
-                if(altMap.size()==0 && (info1.equals("") || info2.equals(""))){
+                if(thoughts.size()==0 && (info1.equals("") || info2.equals(""))){
                     Toast.makeText(AlternativeOptions.this,"You must add at least one thought and description",Toast.LENGTH_LONG).show();
                 }
                 else if (info1.equals("") ^ info2.equals("")) {
                         Toast.makeText(AlternativeOptions.this, "Complete your thought and description or leave them blank", Toast.LENGTH_LONG).show();
                     }
                 else if (!info1.equals("") && !info2.equals("")) {
-                    altMap.put(info1,info2);
+                    thoughts.add(info1);
+                    effect.add(info2);
+                    altMap.put("thoughts",thoughts);
+                    altMap.put("effects",effect);
                     mInfo.put("AlternativeOptions1", altMap);
                     Intent intentLoadNewActivity = new Intent(AlternativeOptions.this, ChallengingThought.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
@@ -71,7 +77,8 @@ public class AlternativeOptions  extends AppCompatActivity {
                     Toast.makeText(AlternativeOptions.this, "Fields cannot be empty", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    altMap.put(info1,info2);
+                    thoughts.add(info1);
+                    effect.add(info2);
                     Toast.makeText(AlternativeOptions.this,"Thought was recorded",Toast.LENGTH_LONG).show();
                     mEdit1.setText("");
                     mEdit2.setText("");
