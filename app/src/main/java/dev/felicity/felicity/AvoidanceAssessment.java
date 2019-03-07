@@ -2,6 +2,7 @@ package dev.felicity.felicity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.content.Intent;
 import android.view.ViewGroup;
@@ -63,7 +64,11 @@ public class AvoidanceAssessment  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!mEditAvoid.getText().toString().equals("")) {
-                    mLayoutAvoid.addView(createNewTextView(mEditAvoid.getText().toString()));
+                    TextView editAvoid = createNewTextView(mEditAvoid.getText().toString());
+                    editAvoid.setPadding(5,5,5,5);
+                    editAvoid.setTextAppearance(R.style.Headers);
+                    mLayoutAvoid.setGravity(Gravity.CENTER);
+                    mLayoutAvoid.addView(editAvoid);
                     avoided.add(mEditAvoid.getText().toString());
                     mEditAvoid.setText("");
                 }
@@ -75,7 +80,11 @@ public class AvoidanceAssessment  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!mEditPros.getText().toString().equals("")) {
-                    mLayoutPros.addView(createNewTextView(mEditPros.getText().toString()));
+                    TextView editPro = createNewTextView(mEditPros.getText().toString());
+                    editPro.setPadding(5,5,5,5);
+                    editPro.setTextAppearance(R.style.Headers);
+                    mLayoutPros.setGravity(Gravity.CENTER);
+                    mLayoutPros.addView(editPro);
                     pros.add(mEditPros.getText().toString());
                     mEditPros.setText("");
                 }
@@ -87,7 +96,11 @@ public class AvoidanceAssessment  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!mEditCons.getText().toString().equals("")) {
-                    mLayoutCons.addView(createNewTextView(mEditCons.getText().toString()));
+                    TextView editCon = createNewTextView(mEditCons.getText().toString());
+                    editCon.setPadding(5,5,5,5);
+                    editCon.setTextAppearance(R.style.Headers);
+                    mLayoutCons.setGravity(Gravity.CENTER);
+                    mLayoutCons.addView(editCon);
                     cons.add(mEditCons.getText().toString());
                     mEditCons.setText("");
                 }

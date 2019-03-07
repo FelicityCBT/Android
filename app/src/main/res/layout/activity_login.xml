@@ -52,7 +52,7 @@
             android:background="@drawable/button_back2"
             android:text="Login" />
 
-        <!-- google sign in button -->
+        <!-- google sign in button-->
         <com.google.android.gms.common.SignInButton
             android:id="@+id/googleBtn"
             android:layout_width="match_parent"
@@ -77,6 +77,17 @@
             android:clickable="true"
             android:onClick="goToSignUp"
             android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="goToForgotPassword"
+            android:text="Forgot Password"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

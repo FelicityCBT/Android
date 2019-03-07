@@ -2,6 +2,7 @@ package dev.felicity.felicity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.content.Intent;
 import android.view.ViewGroup;
@@ -55,7 +56,11 @@ public class MaintainingProgress  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!mEditHelped.getText().toString().equals("")) {
-                    mLayoutHelped.addView(createNewTextView(mEditHelped.getText().toString()));
+                    TextView editHelped = createNewTextView(mEditHelped.getText().toString());
+                    editHelped.setPadding(5, 5, 5, 5);
+                    editHelped.setTextAppearance(R.style.Headers);
+                    mLayoutHelped.setGravity(Gravity.CENTER);
+                    mLayoutHelped.addView(editHelped);
                     helped.add(mEditHelped.getText().toString());
                     mEditHelped.setText("");
                 }
@@ -71,7 +76,11 @@ public class MaintainingProgress  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!mEditNotHelped.getText().toString().equals("")) {
-                    mLayoutNotHelped.addView(createNewTextView(mEditNotHelped.getText().toString()));
+                    TextView editNotHelped = createNewTextView(mEditNotHelped.getText().toString());
+                    editNotHelped.setPadding(5,5,5,5);
+                    editNotHelped.setTextAppearance(R.style.Headers);
+                    mLayoutNotHelped.setGravity(Gravity.CENTER);
+                    mLayoutNotHelped.addView(editNotHelped);
                     notHelped.add(mEditNotHelped.getText().toString());
                     mEditNotHelped.setText("");
                 }

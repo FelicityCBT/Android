@@ -15,7 +15,7 @@
         android:orientation="vertical">
         <TextView
             style="@style/Headers"
-            android:text="Now Let's go back to your original thought:"/>
+            android:text="Now let's go back to your original thought:"/>
 
         <TextView
             android:id="@+id/text"
