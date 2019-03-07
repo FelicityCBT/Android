@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_back"
+    android:padding="10dp"
+    tools:context=".Demographics">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/Headers"
+                android:text="Welcome to FelicityCBT!
+
+Before we begin, we’d love to get to know you. Please fill out the following demographic survey and screening tools before proceeding to the app. This will ensure that FelicityCBT will be a good fit for your needs.
+
+Thank you and please contact us if you have any questions!"/>
+
+
+            <TextView
+                android:id="@+id/Sex"
+                style="@style/Headers"
+                android:text="Gender"/>
+
+            <RadioGroup
+                android:id="@+id/Gender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/Male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/Female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Female" />
+
+                <RadioButton
+                    android:id="@+id/New"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Other" />
+
+                <RadioButton
+                    android:id="@+id/Prefer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Prefer not to say" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Time"
+                style="@style/Headers"
+                android:text="Age"/>
+
+            <EditText
+                android:id="@+id/Userage"
+                android:text=""
+                android:layout_width="fill_parent"
+                android:layout_height="25dp"
+                android:padding="2dp"
+                android:background="#FFF"
+                android:textSize="10dp"/>
+            <RadioGroup
+                android:id="@+id/Agebutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/Prefer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Prefer not to say" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Race"
+                style="@style/Headers"
+                android:text="Race"/>
+
+            <RadioGroup
+                android:id="@+id/Ethnicity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="White" />
+
+                <RadioButton
+                    android:id="@+id/Hispanic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Hispanic or Latinx" />
+
+                <RadioButton
+                    android:id="@+id/Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Black or African American" />
+
+                <RadioButton
+                    android:id="@+id/Native"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Native American or American Indian" />
+
+                <RadioButton
+                    android:id="@+id/Asian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Asian/Pacific Islander" />
+
+                <RadioButton
+                    android:id="@+id/Other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Other" />
+
+                <RadioButton
+                    android:id="@+id/Prefer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Prefer not to say" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Educate"
+                style="@style/Headers"
+                android:text="Are you a college student?"/>
+
+
+            <RadioGroup
+                android:id="@+id/Education"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/UCSD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Yes, I attend UCSD" />
+
+                <RadioButton
+                    android:id="@+id/College"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Yes, but not UCSD" />
+
+
+                <RadioButton
+                    android:id="@+id/N"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="No, I am not a college student" />
+
+                <RadioButton
+                    android:id="@+id/Prefer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Prefer not to say" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/CollegeYear"
+                style="@style/Headers"
+                android:text="If you are currently enrolled in college, what year are you?"/>
+
+            <RadioGroup
+                android:id="@+id/Year"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/One"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="1st" />
+
+                <RadioButton
+                    android:id="@+id/Two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="2nd" />
+
+                <RadioButton
+                    android:id="@+id/Three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="3rd" />
+
+                <RadioButton
+                    android:id="@+id/Four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="4th" />
+
+                <RadioButton
+                    android:id="@+id/Five"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="5th +" />
+
+                <RadioButton
+                    android:id="@+id/NA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Not Applicable" />
+
+                <RadioButton
+                    android:id="@+id/Prefer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Prefer not to say" />
+
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Mental"
+                style="@style/Headers"
+                android:text="Have you ever been diagnosed with or received treatment for a mental health issue?"/>
+
+            <RadioGroup
+                android:id="@+id/Health"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Yes" />
+
+                <RadioButton
+                    android:id="@+id/No"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="No" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/history"
+                style="@style/Headers"
+                android:text="What is your history of mental health treatment?"/>
+
+            <RadioGroup
+                android:id="@+id/kind"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/Have"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Have received services" />
+
+                <RadioButton
+                    android:id="@+id/Current"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Currently receiving services" />
+
+                <RadioButton
+                    android:id="@+id/Never"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Have never received services" />
+
+                <RadioButton
+                    android:id="@+id/Prefer6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Prefer not to say" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Ifyes"
+                style="@style/Headers"
+                android:text="What medical health treatment(s) are you currently receiving?"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="casual"
+                    android:text="Medications" />
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:background="@drawable/button_back"
+                    android:layout_marginBottom="5dp"
+                    android:text="Psychotherapy" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:background="@drawable/button_back"
+                    android:layout_marginBottom="5dp"
+                    android:text="Other" />
+
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:background="@drawable/button_back"
+                    android:layout_marginBottom="5dp"
+                    android:text="Prefer not to say" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#0000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/right"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="92"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

@@ -261,4 +261,15 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
 
+    <ImageButton
+        android:id="@+id/helper"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/help" />
+
 </RelativeLayout>
