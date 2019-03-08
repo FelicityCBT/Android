@@ -92,9 +92,20 @@ public class MaintainingProgress  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String info1=mEdit1.getText().toString();
+                String info2 = mEditHelped.getText().toString();
+                String info3 = mEditNotHelped.getText().toString();
 
-                if(info1.equals("") || helped.size()==0 || notHelped.size() == 0){
+                if(info1.equals("") || (info2.equals("") && helped.size()==0) || (info3.equals("") && notHelped.size() == 0)){
                     Toast.makeText(MaintainingProgress.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
+                } else if(!info1.equals("") && !info2.equals("") && !info3.equals("")) {
+                    helped.add(info2);
+                    notHelped.add(info3);
+                    mInfo.put("MaintainingProgress1", info1);
+                    mInfo.put("MaintainingProgress2", helped);
+                    mInfo.put("MaintainingProgress3", notHelped);
+                    Intent intentLoadNewActivity = new Intent(MaintainingProgress.this, FeelingReview.class);
+                    intentLoadNewActivity.putExtra("mInfo", mInfo);
+                    startActivity(intentLoadNewActivity);
                 }
                 else {
                     mInfo.put("MaintainingProgress1",info1);

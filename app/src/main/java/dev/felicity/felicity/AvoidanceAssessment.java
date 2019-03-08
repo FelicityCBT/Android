@@ -110,13 +110,26 @@ public class AvoidanceAssessment  extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(avoided.size() == 0 || pros.size() == 0 || cons.size() == 0){
-                if(mEditAvoid.getText().toString().equals("") ||
-                    mEditPros.getText().toString().equals("") ||
-                    mEditCons.getText().toString().equals("")) {
+                if( (mEditAvoid.getText().toString().equals("") && avoided.size() == 0) ||
+                        (mEditPros.getText().toString().equals("") && pros.size() == 0) ||
+                        (mEditCons.getText().toString().equals("") && cons.size() == 0) ) {
 
                     Toast.makeText(AvoidanceAssessment.this, "Fields cannot be empty", Toast.LENGTH_LONG).show();
-                } else {
+                } else if(!mEditAvoid.getText().toString().equals("") &&
+                            !mEditPros.getText().toString().equals("") &&
+                            !mEditCons.getText().toString().equals("")) { // User has not added any lines using ADD BTN, but they have input on all lines
+
+                    avoided.add(mEditAvoid.getText().toString());
+                    pros.add(mEditPros.getText().toString());
+                    cons.add(mEditCons.getText().toString());
+                    mInfo.put("AvoidanceAssessment1",avoided);
+                    mInfo.put("AvoidanceAssessment2",pros);
+                    mInfo.put("AvoidanceAssessment3",cons);
+                    Intent intentLoadNewActivity = new Intent(AvoidanceAssessment.this, AlternativeOptions.class);
+                    intentLoadNewActivity.putExtra("mInfo", mInfo);
+                    startActivity(intentLoadNewActivity);
+                }
+                else {
                     mInfo.put("AvoidanceAssessment1",avoided);
                     mInfo.put("AvoidanceAssessment2",pros);
                     mInfo.put("AvoidanceAssessment3",cons);

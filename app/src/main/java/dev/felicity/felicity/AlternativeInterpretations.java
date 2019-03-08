@@ -56,11 +56,20 @@ public class AlternativeInterpretations  extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String info1=mEdit1.getText().toString();
+                String info1 = mEdit1.getText().toString();
+                String info2 = mEdit2.getText().toString();
 
-                if(info1.equals("") || interpretations.size() == 0){
+                if((interpretations.size() == 0 && info2.equals("")) || info1.equals("")){
                     Toast.makeText(AlternativeInterpretations.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
-                }else {
+                } else if(!info1.equals("") && !info2.equals("")) { // User has put stuff on the line but has not clicked ADD BTN
+                    interpretations.add(info2);
+                    mInfo.put("AlternativeInterpretations1",info1);
+                    mInfo.put("AlternativeInterpretations2",interpretations);
+                    Intent intentLoadNewActivity = new Intent(AlternativeInterpretations.this, ThoughtComparison.class);
+                    intentLoadNewActivity.putExtra("mInfo", mInfo);
+                    startActivity(intentLoadNewActivity);
+                }
+                else {
                     mInfo.put("AlternativeInterpretations1",info1);
                     mInfo.put("AlternativeInterpretations2",interpretations);
                     Intent intentLoadNewActivity = new Intent(AlternativeInterpretations.this, ThoughtComparison.class);
