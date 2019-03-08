@@ -4,12 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CopingMechanisms  extends AppCompatActivity {
@@ -17,8 +20,12 @@ public class CopingMechanisms  extends AppCompatActivity {
 
     private ImageButton mNext;
     private HashMap<String,Object> mInfo;
-    private EditText mEdit1;
-    private EditText mEdit2;
+    //    private EditText mEdit1;
+//    private EditText mEdit2;
+    private CheckBox[] boxes = new CheckBox[11]; // Coping mechanisms user did USE
+    private CheckBox[] boxes2 = new CheckBox[11]; // Coping mechanism user did NOT USE
+    private ArrayList<String> copingMechanismsUsed = new ArrayList<>();
+    private ArrayList<String> copingMechanismsNotUsed = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,25 +61,56 @@ public class CopingMechanisms  extends AppCompatActivity {
 
         mNext = findViewById(R.id.next);
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
-        mEdit1=findViewById(R.id.editText1);
-        mEdit2=findViewById(R.id.editText2);
+//        mEdit1=findViewById(R.id.editText1);
+//        mEdit2=findViewById(R.id.editText2);
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String info1=mEdit1.getText().toString();
-                String info2= mEdit2.getText().toString();
-                if(info1.equals("") || info2.equals("")){
-                    Toast.makeText(CopingMechanisms.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    mInfo.put("CopingMechanisms1", info1);
-                    mInfo.put("CopingMechanisms2", info2);
-                    Intent intentLoadNewActivity = new Intent(CopingMechanisms.this, AvoidanceAssessment.class);
-                    intentLoadNewActivity.putExtra("mInfo", mInfo);
-                    startActivity(intentLoadNewActivity);
-                }
+//                String info1=mEdit1.getText().toString();
+//                String info2= mEdit2.getText().toString();
+//                if(info2.equals("")){
+//                    Toast.makeText(CopingMechanisms.this,"Fields cannot be empty",Toast.LENGTH_LONG).show();
+//                }
+//                else {
+//                    mInfo.put("CopingMechanisms1", info1);
+                mInfo.put("CopingMechanisms1", copingMechanismsUsed);
+                mInfo.put("CopingMechanisms2", copingMechanismsNotUsed);
+                Intent intentLoadNewActivity = new Intent(CopingMechanisms.this, AvoidanceAssessment.class);
+                intentLoadNewActivity.putExtra("mInfo", mInfo);
+                startActivity(intentLoadNewActivity);
+//                }
             }
         });
+
+        // Loop through each box and append each checked box to copingMechanisms USED
+        for(int i=0; i<boxes.length;i++){
+            final CheckBox box = boxes[i];
+            box.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked){
+                        copingMechanismsUsed.add(box.getText().toString());
+                    }
+                    else{
+                        copingMechanismsUsed.remove(box.getText().toString());
+                    }
+                }
+            });
+        }
+
+        // Loop through each box and append each checked box to copingMechanisms NOT USED
+        for(int i=0; i<boxes2.length;i++){
+            final CheckBox box2 = boxes2[i];
+            box2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked){
+                        copingMechanismsNotUsed.add(box2.getText().toString());
+                    }
+                    else{
+                        copingMechanismsNotUsed.remove(box2.getText().toString());
+                    }
+                }
+            });
+        }
     }
 }
