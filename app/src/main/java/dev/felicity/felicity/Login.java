@@ -1,8 +1,10 @@
 package dev.felicity.felicity;
 
+import android.content.DialogInterface;
 import android.provider.ContactsContract;
 import android.support.annotation.MainThread;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
+import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -66,9 +69,11 @@ public class Login extends AppCompatActivity {
     LoginButton loginButton;
     CallbackManager callbackManager;
     SignInButton button;
+    String FacebookEmail;
     private final static int RC_SIGN_IN = 1;
     GoogleSignInClient mGoogleSignInClient;
     private String TAG_GOOGLE = "MainActivity";
+    private int flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +104,7 @@ public class Login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                flag=2; //indicate google sign in
                 signIn();
             }
         });
@@ -111,10 +117,17 @@ public class Login extends AppCompatActivity {
         mForgotPassword = findViewById(R.id.forgotPassword);
         mFacebook= FirebaseAuth.getInstance();
 
+        if(mFacebook.getCurrentUser() != null)
+        {
+            startActivity(new Intent(Login.this, LandingPage.class));
+            finish();
+        }
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
+
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
@@ -131,9 +144,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                flag=1;// indicate ep signin
                 startSignIn();
             }
         });
@@ -144,30 +160,31 @@ public class Login extends AppCompatActivity {
                 if(firebaseAuth.getCurrentUser()!=null && firebaseAuth.getCurrentUser().isEmailVerified()){
                     String id= FirebaseAuth.getInstance().getUid();
 
-                    /** go to dem if first time **/
-                    // Get a reference to our posts
-                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference ref = database.getReference("Users/"+id);
-                    // Attach a listener to read the data at our posts reference
-                    ref.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(!dataSnapshot.hasChild("Demographics")){
-                                Intent intentLoadNewActivity = new Intent(Login.this, Demographics.class);
-                                startActivity(intentLoadNewActivity);
-                                finish();
+                    if(flag==1) {
+                        /** go to dem if first time **/
+                        // Get a reference to our posts
+                        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference ref = database.getReference("Users/" + id);
+                        // Attach a listener to read the data at our posts reference
+                        ref.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                if (!dataSnapshot.hasChild("Demographics")) {
+                                    Intent intentLoadNewActivity = new Intent(Login.this, Demographics.class);
+                                    startActivity(intentLoadNewActivity);
+                                    finish();
+                                } else if (dataSnapshot.hasChild("Demographics")) {
+                                    startActivity(new Intent(Login.this, LandingPage.class));
+                                    finish();
+                                }
                             }
-                            else if(dataSnapshot.hasChild("Demographics")){
-                                startActivity(new Intent(Login.this, LandingPage.class));
-                                finish();
-                            }
-                        }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            /*TODO: figure out if anything needs to go here*/
-                        }
-                    });
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                /*TODO: figure out if anything needs to go here*/
+                            }
+                        });
+                    }
                 }
             }
         };
@@ -210,6 +227,9 @@ public class Login extends AppCompatActivity {
                 // ...
             }
         }
+        else{
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
@@ -222,6 +242,11 @@ public class Login extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG_GOOGLE, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
+                            if(isNewUser){
+                                popDialog();
+                                //finish();
+                            }
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -281,9 +306,17 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            startActivity(new Intent(Login.this, LandingPage.class));
-                            finish();
-
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
+                            mFacebook.getInstance().getCurrentUser().getEmail() ;
+                            if(isNewUser){
+                                popDialog();
+                                //finish();
+                            }
+                            else {
+                                startActivity(new Intent(Login.this, LandingPage.class));
+                                finish();
+                            }
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -295,5 +328,24 @@ public class Login extends AppCompatActivity {
                     }
                 });
     }
-
+    public void popDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Terms and Conditions");
+        alertDialogBuilder.setMessage(R.string.termsUpdated);
+        alertDialogBuilder.setPositiveButton("Accept",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        startActivity(new Intent(Login.this, Demographics.class));
+                    }
+                });
+        alertDialogBuilder.setNegativeButton("Decline",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        FirebaseAuth.getInstance().getCurrentUser().delete();
+                    }
+                });
+        alertDialogBuilder.create().show();
+    }
 }

@@ -3,7 +3,8 @@
     <string name="feelings_prompt">Select</string>
     <string name="facebook_app_id">1195134297318865</string>
     <string name="fb_login_protocol_scheme">fb1195134297318865</string>
-
+    <string name ="open">Open</string>
+    <string name ="close">Close</string>
     <string-array name="feelings">
         <item>SELECT</item>
         <item>Anger</item>
@@ -17,6 +18,7 @@
         <item>Shame</item>
     </string-array>
 
+    <string name="termsUpdated">Placeholder</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="screen_risk">The results from your screen suggest that you may be in need of clinical assistance. We urge you to contact the Counseling and Psychological Services (CAPS) Clinic at 858-534-3755 for a confidential evaluation. CAPS is free for UCSD students who have paid the Student Services Fee for the quarter, including for those without insurance. Crisis and emergency counseling is available for UCSD students 24 hours a day, 7 days a week. Trained counselors are also available 24-hours a day, 7-days a week through the San Diego County Access and Crisis Line at 1-888-724-7240 to provide free support for suicide prevention, as well as information about available mental health services, including for those without insurance. If you are having thoughts of suicide, please call the National Suicide Prevention Lifeline at 1-800-273-8255. If at any time you believe you are having a medical or psychiatric emergency, please dial 911. If you would like to continue to FelicityCBT, please do so here:
