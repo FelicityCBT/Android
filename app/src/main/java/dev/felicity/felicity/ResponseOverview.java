@@ -42,7 +42,7 @@ public class ResponseOverview extends AppCompatActivity {
     private boolean survey;
 
     public ResponseOverview() {
-        
+
     }
 
     @Override
