@@ -110,10 +110,13 @@ public class AvoidanceAssessment  extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(avoided.size() == 0 || pros.size() == 0 || cons.size() == 0){
+//                if(avoided.size() == 0 || pros.size() == 0 || cons.size() == 0){
+                if(mEditAvoid.getText().toString().equals("") ||
+                    mEditPros.getText().toString().equals("") ||
+                    mEditCons.getText().toString().equals("")) {
+
                     Toast.makeText(AvoidanceAssessment.this, "Fields cannot be empty", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     mInfo.put("AvoidanceAssessment1",avoided);
                     mInfo.put("AvoidanceAssessment2",pros);
                     mInfo.put("AvoidanceAssessment3",cons);
