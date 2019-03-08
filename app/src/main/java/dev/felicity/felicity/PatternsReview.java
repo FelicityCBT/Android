@@ -1,7 +1,6 @@
 package dev.felicity.felicity;
 
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ public class PatternsReview  extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private TextView mText;
     private String display;
-    private boolean survey;
     //private Button btn;
 
     @Override
@@ -64,23 +62,10 @@ public class PatternsReview  extends AppCompatActivity {
 
                 mInfo.clear();
 
-                survey = false;
-                //instantiates a alert dialog
-                reviewDialog();
-
-                //for the survey
-                survey = false;
-                //instantiates a alert dialog
-                reviewDialog();
-                //secondaryDialog();
-                //if(survey) {
-                //}
-                //calls the method to pop dialog
-                //move this to a method if exit is clicked in the alert dialogue
-                /*Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
+                Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
                 intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intentLoadNewActivity);*/
-
+                startActivity(intentLoadNewActivity);
+                finish();
             }
         });
 
@@ -104,60 +89,5 @@ public class PatternsReview  extends AppCompatActivity {
                         }).
                         setView(image);
         builder.create().show();
-    }
-    public void reviewDialog(){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Would you like to offer feedback for Felicity?");
-        //accept button
-        alertDialogBuilder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                /*String reviewURL = "https://goo.gl/forms/KKxvpdiGKAsSBudA3";
-                Uri webaddress = Uri.parse(reviewURL);
-                Intent gotoWeb = new Intent(Intent.ACTION_VIEW, webaddress);
-                if(gotoWeb.resolveActivity(getPackageManager()) != null){
-                    Intent webIntent = new Intent(getApplicationContext())
-                }*/
-                //goes to the URL
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/KKxvpdiGKAsSBudA3"));
-                startActivity(viewIntent);
-            }
-        });
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                secondaryDialog();
-
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-
-    }
-    public void secondaryDialog(){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Would you like to retake the PHQ survey again?");
-        //Yes button
-        alertDialogBuilder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                //page that goes to PHQ survey again
-                Intent intentLoadNewActivity = new Intent(PatternsReview.this, PHQ9.class);
-                intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intentLoadNewActivity);
-            }
-        });
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intentLoadNewActivity = new Intent(PatternsReview.this, LandingPage.class);
-                intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intentLoadNewActivity);
-                finish();
-            }
-        });
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
 }

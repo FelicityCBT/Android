@@ -22,7 +22,6 @@ public class AlternativeOptions  extends AppCompatActivity {
     private Button mButton;
     private EditText mEdit1;
     private EditText mEdit2;
-    private HashMap<String,ArrayList> altMap= new HashMap<>();
     private ArrayList<String> thoughts= new ArrayList<String>();
     private ArrayList<String> effect= new ArrayList<String>();
 
@@ -51,15 +50,15 @@ public class AlternativeOptions  extends AppCompatActivity {
                 else if (!info1.equals("") && !info2.equals("")) {
                     thoughts.add(info1);
                     effect.add(info2);
-                    altMap.put("thoughts",thoughts);
-                    altMap.put("effects",effect);
-                    mInfo.put("AlternativeOptions1", altMap);
+                    mInfo.put("AlternativeOptions1", thoughts);
+                    mInfo.put("AlternativeOptions2", effect);
                     Intent intentLoadNewActivity = new Intent(AlternativeOptions.this, ChallengingThought.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                     startActivity(intentLoadNewActivity);
                 }
                 else{
-                    mInfo.put("AlternativeOptions1", altMap);
+                    mInfo.put("AlternativeOptions1", thoughts);
+                    mInfo.put("AlternativeOptions2", effect);
                     Intent intentLoadNewActivity = new Intent(AlternativeOptions.this, ChallengingThought.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                     startActivity(intentLoadNewActivity);

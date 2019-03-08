@@ -24,7 +24,7 @@ public class GratuityLog  extends AppCompatActivity {
 
     private Button mContinue;
     private Button mExit;
-    private HashMap<String,Object> mInfo;
+    private HashMap<String,Object> mInfo, mDemographics;
     private String info1;
     private TextView mText;
     private EditText mEdit;
@@ -39,6 +39,7 @@ public class GratuityLog  extends AppCompatActivity {
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
+        // mDemographics = (HashMap<String,Object>)getIntent().getSerializableExtra("mDemographics");
         mEdit=findViewById(R.id.textbox);
         mExit=findViewById(R.id.exit);
         mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -56,14 +57,15 @@ public class GratuityLog  extends AppCompatActivity {
                     LocalDateTime now = LocalDateTime.now();
                     String date= now.getMonth().toString()+" "+now.getDayOfMonth()+", "+now.getYear();
 
+
                     mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                     String key = mDatabase.child("Users").child(mUser).child("Journal").child(date).push().getKey();
                     mDatabase.child("Users").child(mUser).child("Journal").child(date).child(key).setValue(now.toString());
-
+                    // mDatabase.child("Users").child(mUser).child("Demographics").setValue("Test");
                     mDatabase.child("Journal").child(key).setValue(mInfo);
 
                     mInfo.clear();
-
+                    //mDemographics.clear();
                     Intent intentLoadNewActivity = new Intent(GratuityLog.this, LandingPage.class);
                     intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intentLoadNewActivity);
