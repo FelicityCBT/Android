@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Demographics" />
+        <activity android:name=".ResponseOverview"></activity>
+        <activity android:name=".BlankSession" />
+        <activity android:name=".ForgotPassword" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,6 +51,7 @@
         <activity android:name=".PatternsReview" />
         <activity android:name=".Gratuity" />
         <activity android:name=".GratuityLog" />
+        <activity android:name=".PHQ9" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

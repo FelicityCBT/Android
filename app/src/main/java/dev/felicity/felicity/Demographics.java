@@ -94,11 +94,23 @@ public class Demographics extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    mDemographics.put("Demographics", demo);
+                DatabaseReference mDatabase= FirebaseDatabase.getInstance().getReference();
+                String mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                    Intent intentLoadNewActivity = new Intent(Demographics.this, CbtIntro.class);
-                    intentLoadNewActivity.putExtra("mDemographics", mDemographics);
-                    startActivity(intentLoadNewActivity);
+                mDemographics.put("Demographics", demo);
+                try {
+                    demo= (ArrayList<String>)EncUtil.encMap(mDemographics, mUser).get("Demographics");
+                }
+                catch (Exception e){
+                    //TODO
+                }
+
+                mDatabase.child("Users").child(mUser).child("Demographics").setValue(demo);
+                mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+                Intent intentLoadNewActivity = new Intent(Demographics.this, PHQ9.class);
+                //intentLoadNewActivity.putExtra("", mDemographics);
+                startActivity(intentLoadNewActivity);
             }
         });
 
