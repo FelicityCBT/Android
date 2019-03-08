@@ -36,9 +36,8 @@ public class Demographics extends AppCompatActivity {
     private RadioButton mMale, mFemale, mNew, mp, mp5;
     private TextView mifYes;
     private HashMap<String, Object> mDemographics;
-    private ArrayList<String> demo=new ArrayList<>();
-    private CheckBox[] boxes= new CheckBox[4];
-    boolean itsClicked = false;
+    private ArrayList<String> demo = new ArrayList<>();
+    private CheckBox[] boxes = new CheckBox[4];
     private EditText mUserage;
 
     @Override
@@ -86,22 +85,21 @@ public class Demographics extends AppCompatActivity {
         mp2 = findViewById(R.id.Prefer5);
         mNA = findViewById(R.id.NA);
 
-        boxes[0]=findViewById(R.id.checkBox);
-        boxes[1]=findViewById(R.id.checkBox2);
-        boxes[2]=findViewById(R.id.checkBox3);
-        boxes[3]=findViewById(R.id.checkBox4);
+        boxes[0] = findViewById(R.id.checkBox);
+        boxes[1] = findViewById(R.id.checkBox2);
+        boxes[2] = findViewById(R.id.checkBox3);
+        boxes[3] = findViewById(R.id.checkBox4);
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference mDatabase= FirebaseDatabase.getInstance().getReference();
-                String mUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                String mUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                 mDemographics.put("Demographics", demo);
                 try {
-                    demo= (ArrayList<String>)EncUtil.encMap(mDemographics, mUser).get("Demographics");
-                }
-                catch (Exception e){
+                    demo = (ArrayList<String>) EncUtil.encMap(mDemographics, mUser).get("Demographics");
+                } catch (Exception e) {
                     //TODO
                 }
 
@@ -139,8 +137,7 @@ public class Demographics extends AppCompatActivity {
         });
 
         String age = mUserage.getEditableText().toString();
-        if (age != null)
-        {
+        if (age != null) {
             demo.add(age);
         }
         mAge.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -191,7 +188,6 @@ public class Demographics extends AppCompatActivity {
                 }
             }
         });
-
 
 
         mEducation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -260,11 +256,10 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0: // first button
-                        mKind.setVisibility(View.VISIBLE);
                         demo.add(mYes.getText().toString());
                         break;
-                    case 1: // secondbutton
-                        demo.add(mNo.getText().toString());
+                    case 1:
+                        demo.add(mYes.getText().toString());
                         break;
                 }
             }
@@ -276,14 +271,12 @@ public class Demographics extends AppCompatActivity {
                 View radioButton = group.findViewById(checkedId);
                 int index = group.indexOfChild(radioButton);
 
-                switch(index) {
+                switch (index) {
                     case 0:
                         demo.add(mHave.getText().toString());
                         break;
 
                     case 1:
-                        mifYes.setVisibility(View.VISIBLE);
-                        itsClicked = true;
                         demo.add(mCurrent.getText().toString());
                         break;
 
@@ -298,23 +291,17 @@ public class Demographics extends AppCompatActivity {
                 }
             }
         });
-        if(itsClicked) {
-            boxes[0].setVisibility(View.VISIBLE);
-            boxes[1].setVisibility(View.VISIBLE);
-            boxes[2].setVisibility(View.VISIBLE);
-            boxes[3].setVisibility(View.VISIBLE);
-            for (int i = 0; i < boxes.length; i++) {
-                final CheckBox box = boxes[i];
-                box.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked) {
-                            demo.add(box.getText().toString());
-                        } else {
-                            demo.remove(box.getText().toString());
-                        }
+        for (int i = 0; i < boxes.length; i++) {
+            final CheckBox box = boxes[i];
+            box.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        demo.add(box.getText().toString());
+                    } else {
+                        demo.remove(box.getText().toString());
                     }
-                });
-            }
+                }
+            });
         }
     }
 }
