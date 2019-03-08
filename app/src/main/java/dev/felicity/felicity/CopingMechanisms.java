@@ -24,6 +24,33 @@ public class CopingMechanisms  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coping_mechanisms);
+        // These pertain to coping mechanisms USED
+        boxes[0] = findViewById(R.id.checkBox);
+        boxes[1] = findViewById(R.id.checkBox2);
+        boxes[2] = findViewById(R.id.checkBox3);
+        boxes[3] = findViewById(R.id.checkBox4);
+        boxes[4] = findViewById(R.id.checkBox5);
+        boxes[5] = findViewById(R.id.checkBox6);
+        boxes[6] = findViewById(R.id.checkBox7);
+        boxes[7] = findViewById(R.id.checkBox8);
+        boxes[8] = findViewById(R.id.checkBox9);
+        boxes[9] = findViewById(R.id.checkBox10);
+        boxes[10] = findViewById(R.id.checkBox11);
+
+        // These pertain to coping mechanisms NOT USED
+        boxes2[0] = findViewById(R.id.checkBox12);
+        boxes2[1] = findViewById(R.id.checkBox13);
+        boxes2[2] = findViewById(R.id.checkBox14);
+        boxes2[3] = findViewById(R.id.checkBox15);
+        boxes2[4] = findViewById(R.id.checkBox16);
+        boxes2[5] = findViewById(R.id.checkBox17);
+        boxes2[6] = findViewById(R.id.checkBox18);
+        boxes2[7] = findViewById(R.id.checkBox19);
+        boxes2[8] = findViewById(R.id.checkBox20);
+        boxes2[9] = findViewById(R.id.checkBox21);
+        boxes2[10] = findViewById(R.id.checkBox22);
+
+
 
         mNext = findViewById(R.id.next);
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");

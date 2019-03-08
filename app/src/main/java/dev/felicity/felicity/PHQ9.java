@@ -143,7 +143,7 @@ public class PHQ9 extends AppCompatActivity {
         image.setImageResource(R.drawable.phq9_table);
 
         AlertDialog.Builder builder =
-                new AlertDialog.Builder(this).setMessage("REPLACE THIS SHIT").setPositiveButton("Continue",
+                new AlertDialog.Builder(this).setMessage(R.string.screen_risk).setPositiveButton("Continue",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {

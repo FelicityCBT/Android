@@ -6,13 +6,21 @@ import android.widget.Button;
 import android.view.View;
 import android.content.Intent;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class LandingPage extends AppCompatActivity {
 
 
     private Button mSessionButton;
     private Button mSignout;
     private Button mPHQ9;
-    private Button mBlankSessionButton;
+    //private Button mBlankSessionButton;
+    //private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +30,7 @@ public class LandingPage extends AppCompatActivity {
         mSessionButton = findViewById(R.id.session);
         mSignout=findViewById(R.id.logout);
         mPHQ9=findViewById(R.id.phq9);
-        mBlankSessionButton=findViewById(R.id.blankSession);
+        //mBlankSessionButton=findViewById(R.id.blankSession);
 
         mSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,12 +60,12 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
-       mBlankSessionButton.setOnClickListener(new View.OnClickListener() {
+       /*mBlankSessionButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Intent intentLoadNewActivity = new Intent(LandingPage.this, BlankSession.class);
                startActivity(intentLoadNewActivity);
            }
-       });
+       });*/
     }
 }

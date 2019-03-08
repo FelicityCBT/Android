@@ -23,7 +23,7 @@
             android:padding="10dp"
             android:text="CBT is focused on the PRESENT, on your current thoughts and feelings. We'll try to understand a situation by splitting it up."
             android:textSize="25sp"
-            android:fontFamily="casual"/>
+            android:fontFamily="sans-serif"/>
 
         <ImageView
             android:id="@+id/imageView2"

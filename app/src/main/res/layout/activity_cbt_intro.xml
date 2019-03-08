@@ -16,7 +16,7 @@
         android:padding="10dp"
         android:text="What is CBT (Cognitive behavioral therapy)?  It is a form  of therapy that emphasizes the role of how we think and act after the way we feel."
         android:textSize="25sp"
-        android:fontFamily="casual"/>
+        android:fontFamily="sans-serif"/>
 
 
     <ImageButton

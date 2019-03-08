@@ -61,7 +61,13 @@ public class GratuityLog  extends AppCompatActivity {
                     mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                     String key = mDatabase.child("Users").child(mUser).child("Journal").child(date).push().getKey();
                     mDatabase.child("Users").child(mUser).child("Journal").child(date).child(key).setValue(now.toString());
-                    // mDatabase.child("Users").child(mUser).child("Demographics").setValue("Test");
+
+                    try {
+                        mInfo = EncUtil.encMap(mInfo, FirebaseAuth.getInstance().getUid());
+                    }
+                    catch(Exception e){
+                        /*TODO: nothing for now*/
+                    }
                     mDatabase.child("Journal").child(key).setValue(mInfo);
 
                     mInfo.clear();

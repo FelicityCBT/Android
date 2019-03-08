@@ -474,13 +474,5 @@ Thank you and please contact us if you have any questions!"/>
         android:layout_marginBottom="5dp"
         app:srcCompat="@drawable/right"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:progress="92"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
