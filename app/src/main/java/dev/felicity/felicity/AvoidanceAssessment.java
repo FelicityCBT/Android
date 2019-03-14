@@ -130,6 +130,9 @@ public class AvoidanceAssessment  extends AppCompatActivity {
                     startActivity(intentLoadNewActivity);
                 }
                 else {
+                    if(!mEditAvoid.getText().toString().equals("")) avoided.add(mEditAvoid.getText().toString());
+                    if(!mEditPros.getText().toString().equals("")) pros.add(mEditPros.getText().toString());
+                    if(!mEditCons.getText().toString().equals("")) cons.add(mEditCons.getText().toString());
                     mInfo.put("AvoidanceAssessment1",avoided);
                     mInfo.put("AvoidanceAssessment2",pros);
                     mInfo.put("AvoidanceAssessment3",cons);

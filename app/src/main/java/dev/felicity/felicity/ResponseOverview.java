@@ -77,28 +77,29 @@ public class ResponseOverview extends AppCompatActivity {
         prosDisplay = "";
         ArrayList<String> pros = (ArrayList<String>)mInfo.get("AvoidanceAssessment2");
         for(String str : pros) {
-            prosDisplay = prosDisplay + str + "\n";
+            prosDisplay = prosDisplay + "• " + str + "\n";
         }
         mText3 = findViewById(R.id.pros);
-        mText3.setText("• " + prosDisplay);
+        mText3.setText(prosDisplay);
+//        mText3.setText("• " + prosDisplay);
 
         /***** Set display for cons *****/
         consDisplay = "";
         ArrayList<String> cons = (ArrayList<String>)mInfo.get("AvoidanceAssessment3");
         for(String str : cons) {
-            consDisplay = consDisplay + str + "\n";
+            consDisplay = consDisplay + "• " + str + "\n";
         }
         mText4 = findViewById(R.id.cons);
-        mText4.setText("• " + consDisplay);
+        mText4.setText(consDisplay);
 
         /***** Set display for problematic patterns *****/
         problematicPatternsDisplay="";
         ArrayList<String> problematicPatt= (ArrayList<String>)mInfo.get("ProblematicPatterns1");
-        for(String str:problematicPatt){
-            problematicPatternsDisplay=problematicPatternsDisplay+str+"\n";
+        for(String str : problematicPatt){
+            problematicPatternsDisplay = problematicPatternsDisplay + "• " + str+"\n";
         }
         mText5 = findViewById(R.id.problematicPatterns);
-        mText5.setText("• " + problematicPatternsDisplay);
+        mText5.setText(problematicPatternsDisplay);
 
         /***** Next button *****/
         mNext.setOnClickListener(new View.OnClickListener() {

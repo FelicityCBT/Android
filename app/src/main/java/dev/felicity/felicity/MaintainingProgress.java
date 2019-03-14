@@ -108,6 +108,8 @@ public class MaintainingProgress  extends AppCompatActivity {
                     startActivity(intentLoadNewActivity);
                 }
                 else {
+                    if(!info2.equals("")) helped.add(info2);
+                    if(!info3.equals("")) notHelped.add(info3);
                     mInfo.put("MaintainingProgress1",info1);
                     mInfo.put("MaintainingProgress2", helped);
                     mInfo.put("MaintainingProgress3", notHelped);

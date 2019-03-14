@@ -70,6 +70,7 @@ public class AlternativeInterpretations  extends AppCompatActivity {
                     startActivity(intentLoadNewActivity);
                 }
                 else {
+                    if(!info2.equals("")) interpretations.add(info2);
                     mInfo.put("AlternativeInterpretations1",info1);
                     mInfo.put("AlternativeInterpretations2",interpretations);
                     Intent intentLoadNewActivity = new Intent(AlternativeInterpretations.this, ThoughtComparison.class);
