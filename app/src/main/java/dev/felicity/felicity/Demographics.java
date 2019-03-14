@@ -58,7 +58,7 @@ public class Demographics extends AppCompatActivity {
         mCurrent = findViewById(R.id.Current);
         mNever = findViewById(R.id.Never);
         mYes = findViewById(R.id.yes);
-        mNo = findViewById(R.id.no);
+        mNo = findViewById(R.id.No);
         mUserage = findViewById(R.id.Userage);
         mMale = findViewById(R.id.Male);
         mFemale = findViewById(R.id.Female);
@@ -95,20 +95,46 @@ public class Demographics extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                 String mUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String [] keys= {"gender","age","ethnicity","education level","year","health","history"};
+                boolean allKeysExist= true;
 
-                mDemographics.put("Demographics", demo);
-                try {
-                    demo = (ArrayList<String>) EncUtil.encMap(mDemographics, mUser).get("Demographics");
-                } catch (Exception e) {
-                    //TODO
+                if(demo.size()!=0){
+                    mDemographics.put("current_health_issues", demo);
+                }
+                if(!mDemographics.containsKey("age")){
+                    String age= mUserage.getText().toString();
+                    if(!age.equals("")){
+                        mDemographics.put("age",age);
+                    }
                 }
 
-                mDatabase.child("Users").child(mUser).child("Demographics").setValue(demo);
-                mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                for(String key: keys){
+                    if(!mDemographics.containsKey(key)){
+                        allKeysExist=false;
+                        break;
+                    }
+                }
 
-                Intent intentLoadNewActivity = new Intent(Demographics.this, PHQ9.class);
-                //intentLoadNewActivity.putExtra("", mDemographics);
-                startActivity(intentLoadNewActivity);
+                if(!allKeysExist){
+                    Toast.makeText(Demographics.this,"Fields can not be empty", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    //Encryption
+                    try {
+                        mDemographics = EncUtil.encMap(mDemographics, mUser);
+                    } catch (Exception e) {
+                        //TODO
+                    }
+
+                    mDatabase.child("Users").child(mUser).child("Demographics").setValue(mDemographics);
+                    mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+                    Intent intentLoadNewActivity = new Intent(Demographics.this, PHQ9.class);
+                    //intentLoadNewActivity.putExtra("", mDemographics);
+                    startActivity(intentLoadNewActivity);
+
+                }
+
             }
         });
 
@@ -121,25 +147,21 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0:
-                        demo.add(mMale.getText().toString());
+                        mDemographics.put("gender",mMale.getText().toString());
                         break;
                     case 1:
-                        demo.add(mFemale.getText().toString());
+                        mDemographics.put("gender",mFemale.getText().toString());
                         break;
                     case 2:
-                        demo.add(mNew.getText().toString());
+                        mDemographics.put("gender",mNew.getText().toString());
                         break;
                     case 3:
-                        demo.add(mp.getText().toString());
+                        mDemographics.put("gender",mp.getText().toString());
                         break;
                 }
             }
         });
 
-        String age = mUserage.getEditableText().toString();
-        if (age != null) {
-            demo.add(age);
-        }
         mAge.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -149,7 +171,7 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0:
-                        demo.add(mp5.getText().toString());
+                        mDemographics.put("age",mp5.getText().toString());
                         break;
                 }
             }
@@ -165,25 +187,25 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0:
-                        demo.add(mWhite.getText().toString());
+                        mDemographics.put("ethnicity",mWhite.getText().toString());
                         break;
                     case 1:
-                        demo.add(mHispanic.getText().toString());
+                        mDemographics.put("ethnicity",mHispanic.getText().toString());
                         break;
                     case 2:
-                        demo.add(mBlack.getText().toString());
+                        mDemographics.put("ethnicity",mBlack.getText().toString());
                         break;
                     case 3:
-                        demo.add(mNative.getText().toString());
+                        mDemographics.put("ethnicity",mNative.getText().toString());
                         break;
                     case 4:
-                        demo.add(mAsian.getText().toString());
+                        mDemographics.put("ethnicity",mAsian.getText().toString());
                         break;
                     case 5:
-                        demo.add(mOther.getText().toString());
+                        mDemographics.put("ethnicity",mOther.getText().toString());
                         break;
                     case 6:
-                        demo.add(mp3.getText().toString());
+                        mDemographics.put("ethnicity",mp3.getText().toString());
                         break;
                 }
             }
@@ -199,16 +221,16 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0:
-                        demo.add(mUCSD.getText().toString());
+                        mDemographics.put("education level",mUCSD.getText().toString());
                         break;
                     case 1:
-                        demo.add(mCollege.getText().toString());
+                        mDemographics.put("education level",mCollege.getText().toString());
                         break;
                     case 2:
-                        demo.add(mN.getText().toString());
+                        mDemographics.put("education level",mN.getText().toString());
                         break;
                     case 3:
-                        demo.add(mp4.getText().toString());
+                        mDemographics.put("education level",mp4.getText().toString());
                         break;
                 }
             }
@@ -223,25 +245,25 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0:
-                        demo.add(m1.getText().toString());
+                        mDemographics.put("year",m1.getText().toString());
                         break;
                     case 1:
-                        demo.add(m2.getText().toString());
+                        mDemographics.put("year",m2.getText().toString());
                         break;
                     case 2:
-                        demo.add(m3.getText().toString());
+                        mDemographics.put("year",m3.getText().toString());
                         break;
                     case 3:
-                        demo.add(m4.getText().toString());
+                        mDemographics.put("year",m4.getText().toString());
                         break;
                     case 4:
-                        demo.add(m5.getText().toString());
+                        mDemographics.put("year",m5.getText().toString());
                         break;
                     case 5:
-                        demo.add(mNA.getText().toString());
+                        mDemographics.put("year",mNA.getText().toString());
                         break;
                     case 6:
-                        demo.add(mp2.getText().toString());
+                        mDemographics.put("year",mp2.getText().toString());
                         break;
                 }
             }
@@ -256,10 +278,10 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0: // first button
-                        demo.add(mYes.getText().toString());
+                        mDemographics.put("health",mYes.getText().toString());
                         break;
                     case 1:
-                        demo.add(mYes.getText().toString());
+                        mDemographics.put("health",mNo.getText().toString());
                         break;
                 }
             }
@@ -273,19 +295,19 @@ public class Demographics extends AppCompatActivity {
 
                 switch (index) {
                     case 0:
-                        demo.add(mHave.getText().toString());
+                        mDemographics.put("history",mHave.getText().toString());
                         break;
 
                     case 1:
-                        demo.add(mCurrent.getText().toString());
+                        mDemographics.put("history",mCurrent.getText().toString());
                         break;
 
                     case 2:
-                        demo.add(mNever.getText().toString());
+                        mDemographics.put("history",mNever.getText().toString());
                         break;
 
                     case 3:
-                        demo.add(mp2.getText().toString());
+                        mDemographics.put("history",mp2.getText().toString());
                         break;
 
                 }
