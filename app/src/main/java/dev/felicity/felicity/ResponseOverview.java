@@ -116,7 +116,7 @@ public class ResponseOverview extends AppCompatActivity {
                     mInfo = EncUtil.encMap(mInfo, FirebaseAuth.getInstance().getUid());
                 }
                 catch(Exception e){
-                    /*TODO: nothing for now*/
+                    //TODO: nothing for now
                 }
                 mDatabase.child("Journal").child(key).setValue(mInfo);
 

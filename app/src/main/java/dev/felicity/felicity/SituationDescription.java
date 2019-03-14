@@ -17,7 +17,7 @@ public class SituationDescription extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private SeekBar mBar;
     private ImageButton [] buttons=new ImageButton[7];
-    private String info1;
+    private int info1;
     private String info2;
 
     @Override
@@ -36,11 +36,13 @@ public class SituationDescription extends AppCompatActivity {
         buttons[6]=findViewById(R.id.Okay1);
         mBar=findViewById(R.id.seekBar2);
 
+        info1 = 50;
+
         mBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-               info1=String.valueOf(progress);
+               info1=progress;
             }
 
             @Override
@@ -52,7 +54,6 @@ public class SituationDescription extends AppCompatActivity {
 
             }
         });
-
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
