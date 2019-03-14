@@ -91,6 +91,7 @@ public class Login extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions("email");
 
         //google sign in options and stuff
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -166,7 +167,7 @@ public class Login extends AppCompatActivity {
                         final FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference ref = database.getReference("Users/" + id);
                         // Attach a listener to read the data at our posts reference
-                        ref.addValueEventListener(new ValueEventListener() {
+                        ref.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 if (!dataSnapshot.hasChild("Demographics")) {
@@ -246,6 +247,10 @@ public class Login extends AppCompatActivity {
                             if(isNewUser){
                                 popDialog();
                                 //finish();
+                            }
+                            else{
+                                startActivity(new Intent(Login.this, LandingPage.class));
+                                finish();
                             }
                             //updateUI(user);
                         } else {
