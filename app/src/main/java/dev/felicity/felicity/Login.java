@@ -16,6 +16,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
+import com.facebook.login.LoginManager;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -68,6 +69,7 @@ public class Login extends AppCompatActivity {
     LoginButton loginButton;
     CallbackManager callbackManager;
     SignInButton button;
+    String FacebookEmail;
     private final static int RC_SIGN_IN = 1;
     GoogleSignInClient mGoogleSignInClient;
     private String TAG_GOOGLE = "MainActivity";
@@ -116,10 +118,17 @@ public class Login extends AppCompatActivity {
         mForgotPassword = findViewById(R.id.forgotPassword);
         mFacebook= FirebaseAuth.getInstance();
 
+        if(mFacebook.getCurrentUser() != null)
+        {
+            startActivity(new Intent(Login.this, LandingPage.class));
+            finish();
+        }
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
+
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
@@ -135,6 +144,8 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
+
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -302,6 +313,7 @@ public class Login extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             boolean isNewUser = task.getResult().getAdditionalUserInfo().isNewUser();
+                            mFacebook.getInstance().getCurrentUser().getEmail() ;
                             if(isNewUser){
                                 popDialog();
                                 //finish();

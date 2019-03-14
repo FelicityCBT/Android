@@ -31,7 +31,6 @@ public class ResponseOverview extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     private DatabaseReference mDatabase;
     private String mUser;
-    // TODO: Add before emotions and after emotions
     private LinearLayout mEmotionsStartLayout;
     private LinearLayout mEmotionsEndLayout;
     private String prosDisplay;
@@ -43,6 +42,7 @@ public class ResponseOverview extends AppCompatActivity {
     private boolean survey;
 
     public ResponseOverview() {
+
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ResponseOverview extends AppCompatActivity {
             prosDisplay = prosDisplay + str + "\n";
         }
         mText3 = findViewById(R.id.pros);
-        mText3.setText(prosDisplay);
+        mText3.setText("• " + prosDisplay);
 
         /***** Set display for cons *****/
         consDisplay = "";
@@ -89,7 +89,7 @@ public class ResponseOverview extends AppCompatActivity {
             consDisplay = consDisplay + str + "\n";
         }
         mText4 = findViewById(R.id.cons);
-        mText4.setText(consDisplay);
+        mText4.setText("• " + consDisplay);
 
         /***** Set display for problematic patterns *****/
         problematicPatternsDisplay="";
@@ -98,7 +98,7 @@ public class ResponseOverview extends AppCompatActivity {
             problematicPatternsDisplay=problematicPatternsDisplay+str+"\n";
         }
         mText5 = findViewById(R.id.problematicPatterns);
-        mText5.setText(problematicPatternsDisplay);
+        mText5.setText("• " + problematicPatternsDisplay);
 
         /***** Next button *****/
         mNext.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +126,6 @@ public class ResponseOverview extends AppCompatActivity {
                 //instantiates a alert dialog
                 reviewDialog();
 
-
             }
         });
 
@@ -140,21 +139,23 @@ public class ResponseOverview extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Yes!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
                 //goes to the URL
                 Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://goo.gl/forms/KKxvpdiGKAsSBudA3"));
                 startActivity(viewIntent);
+                finish();
             }
         });
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
                 Intent intentLoadNewActivity = new Intent(ResponseOverview.this, LandingPage.class);
                 intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentLoadNewActivity);
                 finish();
             }
         });
-
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
 
