@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.felicity.felicity">
+    package="dev.felicity.felicitycbt">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,47 +11,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Demographics" />
-        <activity android:name=".ResponseOverview"></activity>
-        <activity android:name=".BlankSession" />
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".Login">
+        <activity android:name="dev.felicity.felicitycbt.Demographics" />
+        <activity android:name="dev.felicity.felicitycbt.ResponseOverview"></activity>
+        <activity android:name="dev.felicity.felicitycbt.BlankSession" />
+        <activity android:name="dev.felicity.felicitycbt.ForgotPassword" />
+        <activity android:name="dev.felicity.felicitycbt.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Signup" />
-        <activity android:name=".LandingPage" />
-        <activity android:name=".CbtIntro" />
-        <activity android:name=".CbtChart" />
-        <activity android:name=".SituationDescription" />
-        <activity android:name=".ThoughtDescription" />
-        <activity android:name=".ThoughtSituation" />
-        <activity android:name=".ThoughtMeaning" />
-        <activity android:name=".FeelingSelection" />
-        <activity android:name=".FeelingPercentage" />
-        <activity android:name=".Symptoms" />
-        <activity android:name=".AffectInfluence" />
-        <activity android:name=".CopingMechanisms" />
-        <activity android:name=".AvoidanceAssessment" />
-        <activity android:name=".AlternativeOptions" />
-        <activity android:name=".ChallengingThought" />
-        <activity android:name=".ThoughtExclusion" />
-        <activity android:name=".ProblematicPatterns" />
-        <activity android:name=".FactOrOpinion" />
-        <activity android:name=".AlternativeInterpretations" />
-        <activity android:name=".ThoughtComparison" />
-        <activity android:name=".AlternativePerspective" />
-        <activity android:name=".FeelingSelectionReview" />
-        <activity android:name=".FeelingPercentageReview" />
-        <activity android:name=".MaintainingProgress" />
-        <activity android:name=".FeelingReview" />
-        <activity android:name=".PatternsReview" />
-        <activity android:name=".Gratuity" />
-        <activity android:name=".GratuityLog" />
-        <activity android:name=".PHQ9" />
+        <activity android:name="dev.felicity.felicitycbt.Signup" />
+        <activity android:name="dev.felicity.felicitycbt.LandingPage" />
+        <activity android:name="dev.felicity.felicitycbt.CbtIntro" />
+        <activity android:name="dev.felicity.felicitycbt.CbtChart" />
+        <activity android:name="dev.felicity.felicitycbt.SituationDescription" />
+        <activity android:name="dev.felicity.felicitycbt.ThoughtDescription" />
+        <activity android:name="dev.felicity.felicitycbt.ThoughtSituation" />
+        <activity android:name="dev.felicity.felicitycbt.ThoughtMeaning" />
+        <activity android:name="dev.felicity.felicitycbt.FeelingSelection" />
+        <activity android:name="dev.felicity.felicitycbt.FeelingPercentage" />
+        <activity android:name="dev.felicity.felicitycbt.Symptoms" />
+        <activity android:name="dev.felicity.felicitycbt.AffectInfluence" />
+        <activity android:name="dev.felicity.felicitycbt.CopingMechanisms" />
+        <activity android:name="dev.felicity.felicitycbt.AvoidanceAssessment" />
+        <activity android:name="dev.felicity.felicitycbt.AlternativeOptions" />
+        <activity android:name="dev.felicity.felicitycbt.ChallengingThought" />
+        <activity android:name="dev.felicity.felicitycbt.ThoughtExclusion" />
+        <activity android:name="dev.felicity.felicitycbt.ProblematicPatterns" />
+        <activity android:name="dev.felicity.felicitycbt.FactOrOpinion" />
+        <activity android:name="dev.felicity.felicitycbt.AlternativeInterpretations" />
+        <activity android:name="dev.felicity.felicitycbt.ThoughtComparison" />
+        <activity android:name="dev.felicity.felicitycbt.AlternativePerspective" />
+        <activity android:name="dev.felicity.felicitycbt.FeelingSelectionReview" />
+        <activity android:name="dev.felicity.felicitycbt.FeelingPercentageReview" />
+        <activity android:name="dev.felicity.felicitycbt.MaintainingProgress" />
+        <activity android:name="dev.felicity.felicitycbt.FeelingReview" />
+        <activity android:name="dev.felicity.felicitycbt.PatternsReview" />
+        <activity android:name="dev.felicity.felicitycbt.Gratuity" />
+        <activity android:name="dev.felicity.felicitycbt.GratuityLog" />
+        <activity android:name="dev.felicity.felicitycbt.PHQ9" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
