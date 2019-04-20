@@ -158,11 +158,12 @@ public class Login extends AppCompatActivity {
                         ref.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                if (!dataSnapshot.hasChild("Demographics")) {
-                                    Intent intentLoadNewActivity = new Intent(Login.this, Demographics.class);
+                                if (!dataSnapshot.hasChild("Demographics")) { // Go to Demographics
+//                                    Intent intentLoadNewActivity = new Intent(Login.this, Demographics.class);
+                                    Intent intentLoadNewActivity = new Intent(Login.this, WelcomeVideo.class);
                                     startActivity(intentLoadNewActivity);
                                     finish();
-                                } else if (dataSnapshot.hasChild("Demographics")) {
+                                } else if (dataSnapshot.hasChild("Demographics")) { // Go to LandingPage
                                     startActivity(new Intent(Login.this, LandingPage.class));
                                     finish();
                                 }
@@ -328,8 +329,9 @@ public class Login extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Accept",
                 new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        startActivity(new Intent(Login.this, Demographics.class));
+                    public void onClick(DialogInterface arg0, int arg1) { // Go to Demographics
+                        //startActivity(new Intent(Login.this, Demographics.class));
+                        startActivity(new Intent(Login.this, WelcomeVideo.class));
                     }
                 });
         alertDialogBuilder.setNegativeButton("Decline",
