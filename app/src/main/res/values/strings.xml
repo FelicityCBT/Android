@@ -3,8 +3,8 @@
     <string name="feelings_prompt">Select</string>
     <string name="facebook_app_id">1195134297318865</string>
     <string name="fb_login_protocol_scheme">fb1195134297318865</string>
-    <string name ="open">Open</string>
-    <string name ="close">Close</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string-array name="feelings">
         <item>SELECT</item>
         <item>Anger</item>
@@ -459,4 +459,5 @@ FELICITY, Inc. is located at 2415 Michigan Avenue, Santa Monica, CA 90404.
     <string name="patterns">Try identifying problematic patterns. <font color="#262626">(Tap the info button on the bottom for assistance)</font> <font color='#e6e6e6'>Select all that apply.</font></string>
     <string name="title_activity_gratuity">Gratuity</string>
     <string name="forgotPasswordText">Forgot your password? To reset it, enter your email and click Submit. Follow the instructions in the email that will be sent to you.</string>
+    <string name="title_activity_welcome_video">WelcomeVideo</string>
 </resources>
