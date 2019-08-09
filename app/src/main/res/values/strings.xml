@@ -18,6 +18,23 @@
         <item>Shame</item>
     </string-array>
 
+
+    <string name ="screeningTools">
+        Thank you for taking our survey!
+        \n
+        You will now be directed to our screening tools.
+        \n
+        These tools help us decide whether or not FelicityCBT is a good fit for your needs.
+        \n
+        FelicityCBT is not meant to be a replacement for therapy; rather, it is a self-help app intended to promote mental health and well being.
+        \n
+        Again, we appreciate your patience with our process. Please continue to our screening tools now.
+        \n
+        \n
+        Feel free to contact us if you have any questions!
+
+    </string>
+
     <string name="termsUpdated">Welcome to FELICITYCBT
 \n
 \nThese terms and conditions outline the rules and regulations for the use of FELICITYCBT, which refers to both the mobile application, Felicity, and website, felicitycbt.com.

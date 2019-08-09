@@ -1,5 +1,7 @@
 package dev.felicity.felicitycbt;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -124,10 +126,7 @@ public class Demographics extends AppCompatActivity {
 
                     mDatabase.child("Users").child(mUser).child("Demographics").setValue(mDemographics);
                     mDatabase.child("Users").child(mUser).child("email").setValue(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-
-                    Intent intentLoadNewActivity = new Intent(Demographics.this, PHQ9.class);
-                    //intentLoadNewActivity.putExtra("", mDemographics);
-                    startActivity(intentLoadNewActivity);
+                    popDialog();
 
                 }
 
@@ -321,5 +320,33 @@ public class Demographics extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void popDialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Screening Tools");
+        alertDialogBuilder.setMessage(R.string.screeningTools);
+        alertDialogBuilder.setPositiveButton("Continue",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent intentLoadNewActivity = new Intent(Demographics.this, PHQ9.class);
+                        //intentLoadNewActivity.putExtra("", mDemographics);
+                        startActivity(intentLoadNewActivity);
+                    }
+                });
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        com.google.firebase.auth.FirebaseAuth.getInstance().signOut();
+                        com.facebook.login.LoginManager.getInstance().logOut();
+                        Intent intentLoadNewActivity = new Intent(Demographics.this, Login.class);
+                        intentLoadNewActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intentLoadNewActivity);
+                        finish();
+                    }
+                });
+        alertDialogBuilder.create().show();
     }
 }
