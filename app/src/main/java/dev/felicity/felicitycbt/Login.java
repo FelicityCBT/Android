@@ -214,7 +214,6 @@ public class Login extends AppCompatActivity {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG_GOOGLE, "Google sign in failed", e);
                 Toast.makeText(Login.this, "Auth went wrong", Toast.LENGTH_LONG).show();
-                // ...
             }
         }
         else{
@@ -249,7 +248,6 @@ public class Login extends AppCompatActivity {
                             //updateUI(null);
                         }
 
-                        // ...
                     }
                 });
     }

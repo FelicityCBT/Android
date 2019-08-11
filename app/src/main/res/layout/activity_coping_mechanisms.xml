@@ -98,28 +98,10 @@
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/button_back"
                     android:fontFamily="casual"
-                    android:text="Drinking Alcohol" />
+                    android:text="Substance Use" />
 
                 <CheckBox
                     android:id="@+id/checkBox20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/button_back"
-                    android:fontFamily="casual"
-                    android:text="Smoking" />
-
-                <CheckBox
-                    android:id="@+id/checkBox21"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/button_back"
-                    android:fontFamily="casual"
-                    android:text="Consuming Drugs" />
-
-                <CheckBox
-                    android:id="@+id/checkBox22"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -208,28 +190,10 @@
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/button_back"
                     android:fontFamily="casual"
-                    android:text="Drinking Alcohol" />
+                    android:text="Substance Use" />
 
                 <CheckBox
                     android:id="@+id/checkBox9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/button_back"
-                    android:fontFamily="casual"
-                    android:text="Smoking" />
-
-                <CheckBox
-                    android:id="@+id/checkBox10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/button_back"
-                    android:fontFamily="casual"
-                    android:text="Consuming Drugs" />
-
-                <CheckBox
-                    android:id="@+id/checkBox11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"

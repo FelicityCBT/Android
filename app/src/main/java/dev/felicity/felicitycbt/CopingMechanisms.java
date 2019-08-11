@@ -18,8 +18,8 @@ public class CopingMechanisms  extends AppCompatActivity {
     private HashMap<String,Object> mInfo;
     //    private EditText mEdit1;
 //    private EditText mEdit2;
-    private CheckBox[] boxes = new CheckBox[11]; // Coping mechanisms user did USE
-    private CheckBox[] boxes2 = new CheckBox[11]; // Coping mechanism user did NOT USE
+    private CheckBox[] boxes = new CheckBox[9]; // Coping mechanisms user did USE
+    private CheckBox[] boxes2 = new CheckBox[9]; // Coping mechanism user did NOT USE
     private ArrayList<String> copingMechanismsUsed = new ArrayList<>();
     private ArrayList<String> copingMechanismsNotUsed = new ArrayList<>();
 
@@ -37,8 +37,6 @@ public class CopingMechanisms  extends AppCompatActivity {
         boxes[6] = findViewById(R.id.checkBox7);
         boxes[7] = findViewById(R.id.checkBox8);
         boxes[8] = findViewById(R.id.checkBox9);
-        boxes[9] = findViewById(R.id.checkBox10);
-        boxes[10] = findViewById(R.id.checkBox11);
 
         // These pertain to coping mechanisms NOT USED
         boxes2[0] = findViewById(R.id.checkBox12);
@@ -50,8 +48,6 @@ public class CopingMechanisms  extends AppCompatActivity {
         boxes2[6] = findViewById(R.id.checkBox18);
         boxes2[7] = findViewById(R.id.checkBox19);
         boxes2[8] = findViewById(R.id.checkBox20);
-        boxes2[9] = findViewById(R.id.checkBox21);
-        boxes2[10] = findViewById(R.id.checkBox22);
 
 
 
