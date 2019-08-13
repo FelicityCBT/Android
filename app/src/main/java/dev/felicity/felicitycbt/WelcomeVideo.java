@@ -40,6 +40,7 @@ public class WelcomeVideo extends AppCompatActivity {
 
     }
 
+
     // Play video
     public void playVideo(View v) {
         // Set new MediaController

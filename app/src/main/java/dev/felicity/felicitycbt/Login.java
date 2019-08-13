@@ -320,6 +320,7 @@ public class Login extends AppCompatActivity {
                     }
                 });
     }
+
     public void popDialog() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Terms and Conditions");
