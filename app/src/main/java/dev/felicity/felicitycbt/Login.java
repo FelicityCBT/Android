@@ -70,6 +70,9 @@ public class Login extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_login);
 
+        // Start WelcomeVideo if this is a first time user
+        startFirstTime();
+
         //google button signin
         button = findViewById(R.id.googleBtn);
         //moved this line from down there up
@@ -179,6 +182,24 @@ public class Login extends AppCompatActivity {
             }
         };
 
+    }
+
+    // Start this method if the user first installed the app
+    private void startFirstTime() {
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (isFirstRun) {
+            //show start activity
+
+            startActivity(new Intent(Login.this, WelcomeVideo.class));
+            Toast.makeText(Login.this, "First Run", Toast.LENGTH_LONG)
+                    .show();
+        }
+
+
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).commit();
     }
 
     @Override

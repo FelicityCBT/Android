@@ -32,7 +32,7 @@ public class WelcomeVideo extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(WelcomeVideo.this, Demographics.class);
+                Intent intentLoadNewActivity = new Intent(WelcomeVideo.this, TermsAndConditions.class);
                 intentLoadNewActivity.putExtra("mInfo", mInfo);
                 startActivity(intentLoadNewActivity);
             }
