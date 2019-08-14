@@ -57,16 +57,18 @@
             android:id="@+id/googleBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            tools:visibility="gone" />
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="30dp" />
+            android:layout_marginBottom="30dp"
+            android:textSize="20dp"
+            tools:visibility="gone" />
 
 
         <TextView

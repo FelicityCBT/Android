@@ -35,6 +35,153 @@
 
     </string>
 
+    <string name="consentText">
+        \nIntroduction
+        \n
+        \nDrs. Tiffany Greenwood and Nancy Downs from the University of California, San Diego (UCSD) and their associates are conducting this research and asking for your consent to participate. This section provides a summary of important information. The rest of the form provides additional details.
+        \n
+        \nResearch is voluntary - whether or not you join is your decision. You can discuss your decision with others (such as family and friends).
+        \nYou can say yes but change your mind later.
+        \nIf you say no, we will not hold your decision against you.
+        \nPlease ask questions or mention concerns before, during or after the research.
+        \n
+        \nThe purpose of this study is to assess whether FelicityCBT, a self-help mobile application
+based on cognitive behavioral therapy may improve symptoms of stress and mild-to-
+moderate depression and anxiety. Given the typical benefits of CBT, some participants in this
+study may experience a reduction of their symptoms, as well as an increased experience of
+calmness and well-being.
+        \n
+        \nIf you agree to take part in this study, you will be asked to to answer some initial screening
+questions to determine your eligibility. Eligible participants will then be asked to complete a 3-
+week session of FelicityCBT and a 3-week blank journaling session, for a total participation
+time of 6 weeks. The blank journaling session will prompt you to freely express anything on
+your mind. You will be expected to log either session at least 3 times per week with each
+session lasting approximately 15 minutes. Reminders will be sent daily in the form of push
+notifications to ensure the completion of the required sessions. Midway through the study,
+you will be prompted through push notifications and by email to complete two brief screens
+and to switch from using FelicityCBT to blank journaling, or vice versa. At study completion,
+you will again be prompted through push notifications and by email to repeat the screens.
+        \n
+        \nWhile the risks associated with participation in this research study are minimal, some
+participants may experience emotional discomfort in response to the CBT process, which is
+intended to promote self-reflection and may feel uncomfortable and/or intrusive to some
+participants.
+        \n
+        \nAlthough rare and highly unlikely, the most serious risk of the study may include a loss of
+confidentiality could potentially result from computer software hacking or IP address breach.
+To minimize this risk, you will be identifed in the study by a randomly assigned, coded
+participant identification number, and all data will be encrypted and stored in secure
+databases.
+        \n
+        \nFelicityCBT is freely available to all users via Google Play and the Apple App Store. If you
+choose not to participate in this research study, you may continue to use FelicityCBT on your
+own as you wish.
+        \n
+        \nAdditional, detailed information about this research is provided below. Please feel free to
+contact us (felicity.cbt@gmail.com) with questions before agreeing to participate in this study.
+        \n
+        \n
+        \n<b>What is the approximate number of participants in the study?</b>
+        \nThere will be approximately 300 participants.
+        \n
+        \n<b>How much time will each study procedure take and how long will the study last?</b>
+        \nThe study will last for a total of 6 weeks. For the first 3 weeks, you will be randomly assigned
+to either the blank journalling or CBT session of the app. You must complete at least 3
+sessions per week, regardless of which session you are assigned to. After completing the
+first 3 weeks, you will be asked to repeat the screening questionnaires. You will then switch
+to use the other session for the next 3 weeks and again complete at least 3 sessions per
+week. For example, if you initially did 3 weeks of blank journaling, you would then complete 3
+weeks of the CBT sessions. You will be asked to repeat the screening questionnaires for a
+final time at the end of the 6 weeks. Each session takes approximately 15 minutes, and the
+screening questionnaires may take up to 5 minutes.
+        \n
+        \n<b>What risks are associated with this study?</b>
+        \nParticipation in this study may involve some added risks or discomforts. In addition to the
+risks described at the beginning of this form, it is possible for existing symptoms of stress
+and mild-to-moderate depression and anxiety to worsen over the course of the study. Although unlikely, it is also possible for a loss of confidentiality to result from the
+interception of research and non-research data by a 3 rd party. Also, as with all apps, there is a
+risk of data usage plan expenses. Because this is a research study, there may be some
+unknown risks that are currently unforeseeable. You will be informed of any significant new
+findings.
+        \n
+        \n<b>What are the alternatives to participating in this study?</b>
+        \nAs an alternative to participating in this study, you may continue to use FelicityCBT on your
+own as you wish. You may also choose access the peer counseling and clinical services that
+are available through UCSD Counseling and Psychological Services (CAPS) Clinic by calling
+858-534-3755.
+        \n
+        \n<b>What benefits can be reasonably expected?</b>
+        \nIn addition to the benefits listed at the beginning of this form, if FelicityCBT can be shown to
+be effective in reducing symptoms of depression and anxiety, it will provide increased access
+to a viable self-help treatment option, not only for local college students but also for others in
+the community, as the app is freely available.
+        \n
+        \n<b>What happens if you change your mind about participating?</b>
+        \nIf you decide that you no longer wish to continue in this study, you may simply exit the app.
+You will be told if any important new information is found during the course of this study that
+may affect your wanting to continue.
+        \n
+        \n<b>Can you be withdrawn from the study without your consent?</b>
+        \nYou may be withdrawn from the study if you do not complete at least three blank journaling or
+CBT sessions per week for each 3 week period. You may also be withdrawn from the study if
+you do not follow the instructions given you by the study personnel.
+        \n
+        \n<b>Will you be compensated for participating in this study?</b>
+        \nIn compensation for your time, you will be emailed a code to redeem an Amazon gift card
+worth $30 following your completion of this study. Your participation in this study is entirely
+voluntary, and you may choose to withdraw at any time by simply exiting the app.
+        \n
+        \n<b>Are there any costs associated with participating in this study?</b>
+        \nThere will be no cost to you for participating in this study.
+        \n
+        \n<b>What if you are injured as a direct result of being in this study?</b>
+        \nIf you are injured as a direct result of participation in this research, the University of California
+will provide any medical care you need to treat those injuries. The University will not provide
+any other form of compensation to you if you are injured. You may call the Human Research
+Protections Program Office at 858-246-HRPP (858-246-4777) for more information about
+this, to inquire about your rights as a research subject or to report research-related problems.
+        \n
+        \n<b>What about your confidentiality?</b>
+        \nResearch records will be kept confidential to the extent allowed by law. All data will be
+encrypted and transmitted for storage in secure databases using Firebase. Data will not be
+stored locally on your phone. You will be identified in the study by a coded participant ID
+number, which will be randomly assigned and linked to your coded survey responses. All
+journal entries and personally identifying data will be fully encrypted and not accessible to
+anyone, even the study investigators. Research records may be reviewed by the UCSD
+Institutional Review Board. The information collected as part of the research, even if personal
+identifiers are removed, will not be used or distributed for future research studies.
+        \n
+        \n<b>Will you receive any results from participating in this study?</b>
+        \nYou will not receive any results from participating in this study.
+        \n
+        \n<b>Who can you call if you have questions?</b>
+        \nIf you have questions about this study, you may contact the FelcitiyCBT development team at
+felicity.cbt@gmail.com or call Dr. Greenwood at 858-246-1897. If you feel you may be in
+need of clinical assistance, please contact the UCSD Counseling and Psychological Services
+(CAPS) Clinic at 858-534-3755.
+        \nYou may call the UCSD Human Research Protections Program Office at 858-246-HRPP
+(858-246-4777) to inquire about your rights as a research subject or to report research-
+related problems.
+    </string>
+
+    <string name="warningPopUp">
+        \nIf you are experiencing any mental health issues or feel you may be in need of clinical assistance, please contact the Counseling and Psychological Services (CAPS) Clinic at 858-534-3755 for a confidential evaluation. CAPS is free for UCSD students who have paid the Student Services Fee for the quarter, including for those without insurance. Crisis and emergency counseling is available for UCSD students 24 hours a day, 7 days a week. Trained counselors are also available 24-hours a day, 7-days a week through the San Diego County Access and Crisis Line at 1-888-724-7240 to provide free support for suicide prevention, as well as information about available mental health services, including for those without insurance. If you are having thoughts of suicide, please call the National Suicide Prevention Lifeline at 1-800-273-8255. If at any time you believe you are having a medical or psychiatric emergency, please dial 911.
+    </string>
+
+    <string name="introResearch">
+        \nBefore we begin, we’d love to get to know you. Please fill out the following demographic survey and screening tools before proceeding to the app. This will ensure that FelicityCBT will be a good fit for your needs.
+        \n
+        \nIf you are experiencing any mental health issues or feel you may be in need of clinical assistance, please contact the Counseling and Psychological Services (CAPS) Clinic at 858-534-3755 for a confidential evaluation. CAPS is free for UCSD students who have paid the Student Services Fee for the quarter, including for those without insurance. Crisis and emergency counseling is available for UCSD students 24 hours a day, 7 days a week. Trained counselors are also available 24-hours a day, 7-days a week through the San Diego County Access and Crisis Line at 1-888-724-7240 to provide free support for suicide prevention, as well as information about available mental health services, including for those without insurance. If you are having thoughts of suicide, please call the National Suicide Prevention Lifeline at 1-800-273-8255. If at any time you believe you are having a medical or psychiatric emergency, please dial 911.
+        \n
+        \nThank you and please contact us if you have any questions!
+    </string>
+
+    <string name="demographicsIntroText">
+        \nThank you for agreeing to participate in our research study!
+        \n
+        \n Now we would like you to answer a brief demographic survey.
+    </string>
+
     <string name="termsUpdated">Welcome to FELICITYCBT
 \n
 \nThese terms and conditions outline the rules and regulations for the use of FELICITYCBT, which refers to both the mobile application, Felicity, and website, felicitycbt.com.

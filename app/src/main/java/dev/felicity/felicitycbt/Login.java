@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // Google sign in
                 flag=2; //indicate google sign in
                 signIn();
             }
@@ -146,6 +146,8 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+        // Handle logging in
         mAuthListener= new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@android.support.annotation.NonNull FirebaseAuth firebaseAuth){
@@ -157,16 +159,18 @@ public class Login extends AppCompatActivity {
                         // Get a reference to our posts
                         final FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference ref = database.getReference("Users/" + id);
+
                         // Attach a listener to read the data at our posts reference
                         ref.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                if (!dataSnapshot.hasChild("Demographics")) { // Go to Demographics
-//                                    Intent intentLoadNewActivity = new Intent(Login.this, Demographics.class);
-                                    Intent intentLoadNewActivity = new Intent(Login.this, WelcomeVideo.class);
+                                if (!dataSnapshot.hasChild("Demographics")) { // Go to Demographics Flow
+                                    Intent intentLoadNewActivity = new Intent(Login.this, ResearchIntro.class);
                                     startActivity(intentLoadNewActivity);
                                     finish();
-                                } else if (dataSnapshot.hasChild("Demographics")) { // Go to LandingPage
+
+                                    // Go to one of the LandingPages
+                                } else if (dataSnapshot.hasChild("Demographics")) {
                                     startActivity(new Intent(Login.this, LandingPage.class));
                                     finish();
                                 }
@@ -174,7 +178,7 @@ public class Login extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
-                                /*TODO: figure out if anything needs to go here*/
+
                             }
                         });
                     }
@@ -191,15 +195,12 @@ public class Login extends AppCompatActivity {
 
         if (isFirstRun) {
             //show start activity
-
             startActivity(new Intent(Login.this, WelcomeVideo.class));
-            Toast.makeText(Login.this, "First Run", Toast.LENGTH_LONG)
-                    .show();
         }
 
 
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).commit();
+                .putBoolean("isFirstRun", false).apply();
     }
 
     @Override
@@ -292,6 +293,7 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(Login.this,"You must verify email first",Toast.LENGTH_LONG).show();
                         mAuth.signOut();
                     } else {
+                        // TODO: Might have to change this to accommodate for both LandingPages
                         startActivity(new Intent(Login.this, LandingPage.class));
                         finish();
                     }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_back"
+    tools:context=".Consent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollViewConsent"
+        android:layout_marginBottom="200dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="\nUniversity of California, San \nConsent to Act as a Research Subject\nAssessing the Utility of Cognitive Behavioral Therapy as a Mobile Application"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/consentText"
+                android:layout_margin="5dp"
+                android:textAlignment="textStart" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollViewConsent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/footerTermsAndConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="Your Consent
+\nBy clicking “You Agree” below you are confirming that you are at least 18 years of age, have
+read this consent form, and agree to participate in this research study. This consent form is
+available on the FelicityCBT website (https://www.felicitycbt.com), where you may review it at
+any time and print a copy for your records."
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/yesBtn"
+                style="@style/Buttons"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_back2"
+                android:text="Agree" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/noBtn"
+                style="@style/Buttons"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/button_back2"
+                android:text="Decline" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
