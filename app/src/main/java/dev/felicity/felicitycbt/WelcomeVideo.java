@@ -23,6 +23,8 @@ public class WelcomeVideo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_video);
 
+        mInfo= new HashMap<>();
+
         // Connect object w/ elements
         vid = findViewById(R.id.videoView);
         playVideo(vid); // Plays video asap

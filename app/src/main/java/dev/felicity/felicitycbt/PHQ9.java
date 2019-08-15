@@ -11,24 +11,25 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.HashMap;
 
 
 public class PHQ9 extends AppCompatActivity {
 
-    private RadioGroup[] mRadioGroups= new RadioGroup[17];
+    private RadioGroup[] mRadioGroups= new RadioGroup[10];
     private Button mSubmit;
     private Button mCancel;
     private HashMap<String, Object> mInfo;
     private int score=0;
-    private int score2=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phq9);
 
-        mInfo= new HashMap<>();
+        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
 
         mSubmit=findViewById(R.id.submit);
         mCancel=findViewById(R.id.cancel);
@@ -42,14 +43,8 @@ public class PHQ9 extends AppCompatActivity {
         mRadioGroups[6]=findViewById(R.id.rg7);
         mRadioGroups[7]=findViewById(R.id.rg8);
         mRadioGroups[8]=findViewById(R.id.rg9);
-        mRadioGroups[9]=findViewById(R.id.rg10);
-        mRadioGroups[10]=findViewById(R.id.rg11);
-        mRadioGroups[11]=findViewById(R.id.rg12);
-        mRadioGroups[12]=findViewById(R.id.rg13);
-        mRadioGroups[13]=findViewById(R.id.rg14);
-        mRadioGroups[14]=findViewById(R.id.rg15);
-        mRadioGroups[15]=findViewById(R.id.rg16);
-        mRadioGroups[16]=findViewById(R.id.rg17);
+        mRadioGroups[9]=findViewById(R.id.rg1);
+
 
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +52,7 @@ public class PHQ9 extends AppCompatActivity {
                 score=0;
                 boolean error= false;
 
-                for(int i=0; i<9;i++){
+                for(int i=0; i<9;i++){ // PHQ Questions
                     RadioGroup group= mRadioGroups[i];
                     if (group.getCheckedRadioButtonId() == -1)
                     {
@@ -66,47 +61,45 @@ public class PHQ9 extends AppCompatActivity {
                         break;
                     }
                     int q_score=group.indexOfChild(findViewById(group.getCheckedRadioButtonId()));
-                    score=score+q_score;
-                    String key= "PHQ9 question "+i;
-                    mInfo.put(key, q_score);
+                    // Check if "Prefer Not to Say was checked
+                    if(q_score == 4) q_score = 0;
+                    score = score + q_score;
+                    String key = "PHQ9 question " + i;
+//                    mInfo.put(key, q_score); TODO: Uncomment
                 }
 
-                for(int i=9; i<16;i++){
-                    RadioGroup group= mRadioGroups[i];
-                    if (group.getCheckedRadioButtonId() == -1)
-                    {
-                        Toast.makeText(PHQ9.this,"All questions must be answered",Toast.LENGTH_LONG).show();
-                        error=true;
-                        break;
-                    }
-                    int q_score=group.indexOfChild(findViewById(group.getCheckedRadioButtonId()));
-                    score2=score2+q_score;
-                    String key= "GAD7 question "+i;
-                    mInfo.put(key, q_score);
-                }
+//                for(int i=9; i<16;i++){ // GAD Questions
+//                    RadioGroup group= mRadioGroups[i];
+//                    if (group.getCheckedRadioButtonId() == -1)
+//                    {
+//                        Toast.makeText(PHQ9.this,"All questions must be answered",Toast.LENGTH_LONG).show();
+//                        error=true;
+//                        break;
+//                    }
+//                    int q_score=group.indexOfChild(findViewById(group.getCheckedRadioButtonId()));
+//                    score2=score2+q_score;
+//                    String key= "GAD7 question "+i;
+//                    mInfo.put(key, q_score);
+//                }
 
                 if(!error){
-                    //for db
-                    //mInfo.put("score",score); //TODO: Ask Karen if we should store this info in the database
 
-                    //encryption/decryption test
-                    /*String uid= FirebaseAuth.getInstance().getUid();
-                    try {
-                        String ct= EncUtil.encryptMsg(""+score, uid);
-                        Toast.makeText(PHQ9.this,ct,Toast.LENGTH_LONG).show();
-                        String uct=EncUtil.decryptMsg(ct, uid);
-                        Toast.makeText(PHQ9.this,uct,Toast.LENGTH_LONG).show();
-                    }
-                    catch(Exception e){
-                        Toast.makeText(PHQ9.this,e.toString(),Toast.LENGTH_LONG).show();
-                    }*/
-                    int lq_score=mRadioGroups[16].indexOfChild(findViewById(mRadioGroups[16].getCheckedRadioButtonId()));
-                    if(score<=14 && score2<=10 && lq_score<=2) {
-                        popDialog();
-                    }
-                    else{
-                        popDialog1();
-                    }
+
+                    //                    mInfo.put("TotalScorePHQ", EncUtil.encryptMsg(""+score, uid)); TODO: Uncomment
+
+//                    int lq_score=mRadioGroups[9].indexOfChild(findViewById(mRadioGroups[9].getCheckedRadioButtonId())); // Score on the last question
+
+//                    if(score<=14 && lq_score<=2) {
+//                        popDialog();
+//                    }
+//                    else{
+//                        popDialog1();
+//                    }
+
+                    // Continue to GAD
+                    Intent intentLoadNewActivity = new Intent(PHQ9.this, GAD.class);
+                    intentLoadNewActivity.putExtra("mInfo", mInfo);
+                    startActivity(intentLoadNewActivity);
                 }
             }
         });
@@ -114,23 +107,24 @@ public class PHQ9 extends AppCompatActivity {
         mCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(PHQ9.this, LandingPage.class);
+                Intent intentLoadNewActivity = new Intent(PHQ9.this, LandingPage.class); // TODO: Change to accommodate new LandingPages
                 startActivity(intentLoadNewActivity);
                 finish();
             }
         });
     }
 
+    // Pop Dialog if User is eligible for experiment
     public void popDialog(){
         ImageView image = new ImageView(this);
         image.setImageResource(R.drawable.phq9_table);
 
         AlertDialog.Builder builder =
-                new AlertDialog.Builder(this).setTitle("PHQ-9 Score").setMessage("Your Score: "+(score+score2)+"\nUse this app accordingly").setPositiveButton("Done",
+                new AlertDialog.Builder(this).setTitle("PHQ-9 Score").setMessage("Your Score: "+ score).setPositiveButton("Continue",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
-                                Intent intentLoadNewActivity = new Intent(PHQ9.this, LandingPage.class);
+                                Intent intentLoadNewActivity = new Intent(PHQ9.this, GAD.class);
                                 startActivity(intentLoadNewActivity);
                                 finish();
                             }
@@ -147,7 +141,7 @@ public class PHQ9 extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
-                                Intent intentLoadNewActivity = new Intent(PHQ9.this, LandingPage.class);
+                                Intent intentLoadNewActivity = new Intent(PHQ9.this, LandingPage.class); // TODO: Change to accommodate new LandingPages
                                 startActivity(intentLoadNewActivity);
                                 finish();
                             }

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DemographicsIntro"></activity>
+        <activity android:name=".GAD"></activity>
+        <activity android:name=".DemographicsIntro" />
         <activity android:name=".Consent" />
         <activity
             android:name=".ResearchIntro"
@@ -62,7 +63,10 @@
         <activity android:name=".PatternsReview" />
         <activity android:name=".Gratuity" />
         <activity android:name=".GratuityLog" />
-        <activity android:name=".PHQ9" />
+        <activity
+            android:name=".PHQ9"
+            android:exported="true"
+            />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_back"
-    android:padding="10dp"
-    tools:context=".PHQ9">
+    tools:context=".GAD">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:id="@+id/HeaderText2"
             style="@style/Headers"
             android:layout_width="wrap_content"
-            android:text="Over the last 2 weeks, how often have you been bothered by any of the following problems?"
+            android:text="We would like to ask a final set of questions. Over the last 2 weeks, how often have you been bothered by any of the following problems?"
             android:textSize="17dp" />
 
         <ScrollView
@@ -40,13 +40,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textView15"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text="Little interest or pleasure in doing things:"
+                    android:text="Feeling nervous, anxious or on edge:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:id="@+id/rg1">
 
                     <RadioButton
-                        android:id="@+id/a10"
+                        android:id="@+id/a1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -64,7 +64,7 @@
                         android:text="Not at all " />
 
                     <RadioButton
-                        android:id="@+id/b10"
+                        android:id="@+id/b1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -74,7 +74,7 @@
                         android:text="Several days" />
 
                     <RadioButton
-                        android:id="@+id/c10"
+                        android:id="@+id/c1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -84,7 +84,7 @@
                         android:text="More than half the days" />
 
                     <RadioButton
-                        android:id="@+id/d10"
+                        android:id="@+id/d1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -94,7 +94,7 @@
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e10"
+                        android:id="@+id/e1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -105,19 +105,18 @@
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/textView16"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text="Feeling down, depressed, or hopeless:"
+                    android:text="Not being able to stop or control worrying:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/rg2">>
+                    android:id="@+id/rg2">
 
                     <RadioButton
                         android:id="@+id/a2"
@@ -160,7 +159,7 @@
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e2"
+                        android:id="@id/e2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -171,14 +170,14 @@
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/textView17"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text="Trouble falling or staying asleep, or sleeping too much:"
+                    android:text="Worrying too much about different things:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -226,7 +225,7 @@
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e3"
+                        android:id="@id/e3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -237,14 +236,14 @@
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/textView18"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text="Feeling tired or having little energy :"
+                    android:text="Trouble relaxing:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -292,7 +291,7 @@
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e4"
+                        android:id="@id/e4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -303,14 +302,14 @@
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/textView19"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text=" Poor appetite or overeating:"
+                    android:text="Being so restless that it is hard to sit still:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -358,7 +357,7 @@
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e5"
+                        android:id="@id/e5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -369,15 +368,14 @@
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textView20"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text=" Feeling bad about yourself — or that you are a failure or
-have let yourself or your family down:"
+                    android:text="Becoming easily annoyed or irritable:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -425,7 +423,7 @@ have let yourself or your family down:"
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e6"
+                        android:id="@id/e6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -436,15 +434,14 @@ have let yourself or your family down:"
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textView21"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text="Trouble concentrating on things, such as reading the
-newspaper or watching television:"
+                    android:text="Feeling afraid as if something awful might happen:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -492,7 +489,7 @@ newspaper or watching television:"
                         android:text="Nearly every day" />
 
                     <RadioButton
-                        android:id="@+id/e7"
+                        android:id="@id/e7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -503,16 +500,14 @@ newspaper or watching television:"
                 </RadioGroup>
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/textView22"
                     style="@style/Headers"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:padding="0dp"
-                    android:text="Moving or speaking so slowly that other people could have
-noticed? Or the opposite — being so fidgety or restless
-that you have been moving around a lot more than usual:"
+                    android:text="If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?:"
                     android:textSize="15dp" />
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -537,7 +532,7 @@ that you have been moving around a lot more than usual:"
                         android:layout_weight="1"
                         android:background="@drawable/button_back"
                         android:fontFamily="casual"
-                        android:text="Several days" />
+                        android:text="Somewhat difficult" />
 
                     <RadioButton
                         android:id="@+id/c8"
@@ -547,7 +542,7 @@ that you have been moving around a lot more than usual:"
                         android:layout_weight="1"
                         android:background="@drawable/button_back"
                         android:fontFamily="casual"
-                        android:text="More than half the days" />
+                        android:text="Very difficult" />
 
                     <RadioButton
                         android:id="@+id/d8"
@@ -557,144 +552,10 @@ that you have been moving around a lot more than usual:"
                         android:layout_weight="1"
                         android:background="@drawable/button_back"
                         android:fontFamily="casual"
-                        android:text="Nearly every day" />
-
-                    <RadioButton
-                        android:id="@+id/e8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Prefer not to say" />
-                </RadioGroup>
-
-                <TextView
-                    android:id="@+id/textView14"
-                    style="@style/Headers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:padding="0dp"
-                    android:text="Thoughts that you would be better off dead or of hurting
-yourself in some way:"
-                    android:textSize="15dp" />
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/rg9">>
-
-                    <RadioButton
-                        android:id="@+id/a9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Not at all " />
-
-                    <RadioButton
-                        android:id="@+id/b9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Several days" />
-
-                    <RadioButton
-                        android:id="@+id/c9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="More than half the days" />
-
-                    <RadioButton
-                        android:id="@+id/d9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Nearly every day" />
-
-                    <RadioButton
-                        android:id="@+id/e9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Prefer not to say" />
-                </RadioGroup>
-
-
-                <TextView
-                    android:id="@+id/textView22"
-                    style="@style/Headers"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:padding="0dp"
-                    android:text="If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?:"
-                    android:textSize="15dp" />
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@id/rg1">>
-
-                    <RadioButton
-                        android:id="@id/a10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Not at all " />
-
-                    <RadioButton
-                        android:id="@id/b10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Somewhat difficult" />
-
-                    <RadioButton
-                        android:id="@id/c10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
-                        android:text="Very difficult" />
-
-                    <RadioButton
-                        android:id="@id/d10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_back"
-                        android:fontFamily="casual"
                         android:text="Extremely difficult" />
 
                     <RadioButton
-                        android:id="@id/e10"
+                        android:id="@id/e8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -702,9 +563,8 @@ yourself in some way:"
                         android:background="@drawable/button_back"
                         android:fontFamily="casual"
                         android:text="Prefer not to say" />
-
-
                 </RadioGroup>
+
 
             </LinearLayout>
         </ScrollView>
@@ -736,4 +596,6 @@ yourself in some way:"
 
     </LinearLayout>
 
-</RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
