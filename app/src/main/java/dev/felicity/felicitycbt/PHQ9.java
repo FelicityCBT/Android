@@ -99,6 +99,7 @@ public class PHQ9 extends AppCompatActivity {
                     // Continue to GAD
                     Intent intentLoadNewActivity = new Intent(PHQ9.this, GAD.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
+                    intentLoadNewActivity.putExtra("PHQScore", score);
                     startActivity(intentLoadNewActivity);
                 }
             }

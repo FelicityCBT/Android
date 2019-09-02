@@ -24,6 +24,7 @@ public class GAD extends AppCompatActivity {
     private Button mSubmit;
     private Button mCancel;
     private HashMap<String, Object> mInfo;
+    private int phqScore;
     private int score = 0;
     private FirebaseAuth mAuth;
 
@@ -34,6 +35,7 @@ public class GAD extends AppCompatActivity {
 
 
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
+
 
         mSubmit=findViewById(R.id.submit);
         mCancel=findViewById(R.id.cancel);
@@ -66,7 +68,7 @@ public class GAD extends AppCompatActivity {
                     if(q_score == 4) q_score = 0; // "Prefer Not To Say" is scored as a 0
                     score = score + q_score;
                     String key= "GAD7 question "+i;
-//                    mInfo.put(key, q_score);
+//                    mInfo.put(key, q_score); // TODO: Uncomment
                 }
 
                 if(!error){
@@ -87,31 +89,31 @@ public class GAD extends AppCompatActivity {
                     //for db
                     // mInfo.put("TotalScorePHQ", EncUtil.encryptMsg(""+score, uid)); TODO: Uncomment
 
-                    // Get reference to user's account to check eligibility
-                    final String id = mAuth.getInstance().getUid();
+
+                    // Flags to determine if user is eligible
+                    boolean isUCSDStudent = false;
+                    boolean isOfAge = false;
+                    boolean hasValidPHQScore = false;
+                    boolean hasValidGADScore = false;
 
                     // Get user's education level
+                    // Get reference to user's account to check eligibility
+                    final String id = mAuth.getInstance().getUid();
                     final FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference ref = database.getReference("Users/" + id + "/Demographics");
-
                     // Attach listener to read the data
                     ref.child("education level").addValueEventListener(new ValueEventListener() {
-
-
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String educationLevel = (String)dataSnapshot.getValue();
                             try {
                                 String decryptedEducationLevel = EncUtil.decryptMsg(educationLevel, id);
+//                                phqScore = (Integer)getIntent().getSerializableExtra("PHQScore");
 
-                                switch (decryptedEducationLevel) {
-                                    case "Yes, I attend UCSD":
-                                        popUpEligible(GAD.this);
-                                        break;
+                                // User is eligible for the study
+                                if(decryptedEducationLevel.equals("Yes, I attend UCSD"))
 
-                                    default:
-                                        popUpIneligible(GAD.this);
-                                }
+
 
                             } catch(Exception e) {
 
