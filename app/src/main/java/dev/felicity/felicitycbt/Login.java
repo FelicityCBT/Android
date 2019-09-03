@@ -42,6 +42,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 
 public class Login extends AppCompatActivity {
 
@@ -62,6 +64,7 @@ public class Login extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     private String TAG_GOOGLE = "MainActivity";
     private int flag=0;
+    private HashMap<String, Object> mInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +86,8 @@ public class Login extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
+
+        mInfo = (HashMap<String, Object>)getIntent().getSerializableExtra("mInfo");
 
         //google sign in options and stuff
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -166,12 +171,15 @@ public class Login extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 if (!dataSnapshot.hasChild("Demographics")) { // Go to Demographics Flow
                                     Intent intentLoadNewActivity = new Intent(Login.this, ResearchIntro.class);
+                                    intentLoadNewActivity.putExtra("mInfo", mInfo);
                                     startActivity(intentLoadNewActivity);
                                     finish();
 
                                     // Go to one of the LandingPages
                                 } else if (dataSnapshot.hasChild("Demographics")) {
-                                    startActivity(new Intent(Login.this, LandingPage.class));
+                                    Intent intentLoadNewActivity = new Intent(Login.this, LandingPage.class);
+                                    intentLoadNewActivity.putExtra("mInfo", mInfo);
+                                    startActivity(intentLoadNewActivity);
                                     finish();
                                 }
                             }
