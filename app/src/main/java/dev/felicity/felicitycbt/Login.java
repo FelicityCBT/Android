@@ -90,6 +90,8 @@ public class Login extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
 
+        mInfo = (HashMap<String, Object>)getIntent().getSerializableExtra("mInfo");
+
         //google sign in options and stuff
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("961359328033-jhlaa6pl6gdh2trrn2vjpgm8sfn8fekh.apps.googleusercontent.com")
@@ -178,7 +180,9 @@ public class Login extends AppCompatActivity {
 
                                     // Go to one of the LandingPages
                                 } else if (dataSnapshot.hasChild("Demographics")) {
-                                    startActivity(new Intent(Login.this, LandingPage.class));
+                                    Intent intentLoadNewActivity = new Intent(Login.this, LandingPage.class);
+                                    intentLoadNewActivity.putExtra("mInfo", mInfo);
+                                    startActivity(intentLoadNewActivity);
                                     finish();
                                 }
                             }

@@ -34,8 +34,8 @@ public class GAD extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gad);
 
+        phqScore = (Integer)getIntent().getSerializableExtra("PHQScore");
 
-        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
 
 
         mSubmit=findViewById(R.id.submit);
@@ -52,8 +52,12 @@ public class GAD extends AppCompatActivity {
 
 
         mSubmit.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
+
                 score=0;
                 boolean error= false;
 
@@ -70,6 +74,7 @@ public class GAD extends AppCompatActivity {
                     score = score + q_score;
                     String key= "GAD7 question "+i;
                     mInfo.put(key, q_score); // TODO: Uncomment
+
                 }
 
                 // FOR NOW, just go to a temporary page
@@ -79,21 +84,20 @@ public class GAD extends AppCompatActivity {
 
                 if(!error){
 
-//                    String ct = ""+score;
-//                    //encryption/decryption
-//                    String uid= FirebaseAuth.getInstance().getUid();
-//                    try {
-//                        ct= EncUtil.encryptMsg(""+score, uid);
-//                        Toast.makeText(GAD.this,ct,Toast.LENGTH_LONG).show();
-//                        String uct=EncUtil.decryptMsg(ct, uid);
-//                        //Toast.makeText(GAD.this,uct,Toast.LENGTH_LONG).show();
-//                    }
-//                    catch(Exception e){
-//                        Toast.makeText(GAD.this,e.toString(),Toast.LENGTH_LONG).show();
-//                    }
-
-                    //for db
-                    // mInfo.put("TotalScorePHQ", EncUtil.encryptMsg(""+score, uid)); TODO: Uncomment
+                    String ct = ""+score;
+                    //encryption/decryption
+                    String uid= FirebaseAuth.getInstance().getUid();
+                    Toast.makeText(GAD.this, uid, Toast.LENGTH_LONG);
+                    try {
+                        ct= EncUtil.encryptMsg(""+score, uid);
+                        Toast.makeText(GAD.this,ct,Toast.LENGTH_LONG).show();
+                        String uct=EncUtil.decryptMsg(ct, uid);
+                        mInfo.put("TotalScorePHQ", EncUtil.encryptMsg(""+ct, uid));
+                        Toast.makeText(GAD.this,uct,Toast.LENGTH_LONG).show();
+                    }
+                    catch(Exception e){
+                        Toast.makeText(GAD.this,e.toString(),Toast.LENGTH_LONG).show();
+                    }
 
 
                     // Flags to determine if user is eligible
@@ -114,10 +118,12 @@ public class GAD extends AppCompatActivity {
                             String educationLevel = (String)dataSnapshot.getValue();
                             try {
                                 String decryptedEducationLevel = EncUtil.decryptMsg(educationLevel, id);
-//                                phqScore = (Integer)getIntent().getSerializableExtra("PHQScore");
+                                phqScore = (Integer)getIntent().getSerializableExtra("PHQScore");
 
                                 // User is eligible for the study
+
                                // if(decryptedEducationLevel.equals("Yes, I attend UCSD"))
+
 
 
 

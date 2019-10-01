@@ -32,21 +32,27 @@ public class Consent extends AppCompatActivity {
         mAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popDialog(true);
+                mInfo.put("ConsentForm", "Yes");
+                Intent intentLoadNewActivity = new Intent(Consent.this, DemographicsIntro.class);
+                intentLoadNewActivity.putExtra("mInfo", mInfo);
+                popDialog(true, intentLoadNewActivity);
             }
         });
 
         mDeclineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popDialog(false);
+                mInfo.put("ConsentForm", "No");
+                Intent intentLoadNewActivity = new Intent(Consent.this, LandingPage.class);
+                intentLoadNewActivity.putExtra("mInfo", mInfo);
+                popDialog(false, intentLoadNewActivity);
             }
         });
 
     }
 
     // Show Dialog concerning mental health
-    public void popDialog(final boolean isAccept) {
+    public void popDialog(final boolean isAccept, final Intent intent) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Please Read");
         alertDialogBuilder.setMessage(R.string.warningPopUp);
@@ -54,16 +60,10 @@ public class Consent extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 if(isAccept) { // User consented, so continue to DemographicsIntro Screen
-                    mInfo.put("ConsentForm", "Yes");
-                    Intent intentLoadNewActivity = new Intent(Consent.this, DemographicsIntro.class);
-                    intentLoadNewActivity.putExtra("mInfo", mInfo);
-                    startActivity(intentLoadNewActivity);
+                    startActivity(intent);
 
                 } else { // User did not consent, so continue to LandingPage
-                    mInfo.put("ConsentForm", "No");
-                    Intent intentLoadNewActivity = new Intent(Consent.this, LandingPage.class);
-                    intentLoadNewActivity.putExtra("mInfo", mInfo);
-                    startActivity(intentLoadNewActivity);
+                    startActivity(intent);
                 }
             }
         });

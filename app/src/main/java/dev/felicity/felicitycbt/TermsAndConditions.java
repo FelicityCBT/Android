@@ -19,11 +19,13 @@ public class TermsAndConditions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terms_and_conditions);
 
+        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
+
+
         mAcceptButton = (Button)findViewById(R.id.yesBtn);
         mDeclineButton = (Button) findViewById(R.id.noBtn);
 
         mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
-
 
         mAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
