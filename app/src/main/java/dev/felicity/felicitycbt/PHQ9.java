@@ -65,7 +65,7 @@ public class PHQ9 extends AppCompatActivity {
                     if(q_score == 4) q_score = 0;
                     score = score + q_score;
                     String key = "PHQ9 question " + i;
-//                    mInfo.put(key, q_score); TODO: Uncomment
+                    mInfo.put(key, q_score); 
                 }
 
 //                for(int i=9; i<16;i++){ // GAD Questions

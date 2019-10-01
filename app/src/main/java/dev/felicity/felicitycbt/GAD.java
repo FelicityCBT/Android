@@ -28,6 +28,7 @@ public class GAD extends AppCompatActivity {
     private int score = 0;
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +69,13 @@ public class GAD extends AppCompatActivity {
                     if(q_score == 4) q_score = 0; // "Prefer Not To Say" is scored as a 0
                     score = score + q_score;
                     String key= "GAD7 question "+i;
-//                    mInfo.put(key, q_score); // TODO: Uncomment
+                    mInfo.put(key, q_score); // TODO: Uncomment
                 }
+
+                // FOR NOW, just go to a temporary page
+                Intent intentLoadNewActivity = new Intent(GAD.this, Temp.class);
+                intentLoadNewActivity.putExtra("mInfo", mInfo);
+                startActivity(intentLoadNewActivity);
 
                 if(!error){
 
@@ -111,7 +117,7 @@ public class GAD extends AppCompatActivity {
 //                                phqScore = (Integer)getIntent().getSerializableExtra("PHQScore");
 
                                 // User is eligible for the study
-                                if(decryptedEducationLevel.equals("Yes, I attend UCSD"))
+                               // if(decryptedEducationLevel.equals("Yes, I attend UCSD"))
 
 
 

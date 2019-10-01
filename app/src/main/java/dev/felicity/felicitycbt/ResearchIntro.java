@@ -30,6 +30,7 @@ public class ResearchIntro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentLoadNewActivity = new Intent(ResearchIntro.this, Consent.class);
+                mInfo.put("isInterestedInResearchStudy", "True");
                 intentLoadNewActivity.putExtra("mInfo", mInfo);
                 startActivity(intentLoadNewActivity);
             }
@@ -41,6 +42,7 @@ public class ResearchIntro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intentLoadNewActivity = new Intent(ResearchIntro.this, LandingPage.class);
+                mInfo.put("isInterestedInResearchStudy", "False");
                 intentLoadNewActivity.putExtra("mInfo", mInfo);
                 startActivity(intentLoadNewActivity);
             }

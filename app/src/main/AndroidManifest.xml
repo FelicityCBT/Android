@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.felicity.felicitycbt">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -11,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GAD"></activity>
+        <activity
+            android:name=".Temp"
+            android:label="@string/title_activity_temp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".GAD" />
         <activity android:name=".DemographicsIntro" />
         <activity android:name=".Consent" />
         <activity
@@ -65,17 +67,13 @@
         <activity android:name=".GratuityLog" />
         <activity
             android:name=".PHQ9"
-            android:exported="true"
-            />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:exported="true" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
+
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
@@ -88,6 +86,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

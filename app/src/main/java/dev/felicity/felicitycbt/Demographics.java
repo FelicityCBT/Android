@@ -37,11 +37,15 @@ public class Demographics extends AppCompatActivity {
     private ArrayList<String> demo = new ArrayList<>();
     private CheckBox[] boxes = new CheckBox[4];
     private EditText mUserage;
+    private HashMap<String, Object> mInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demographics);
+
+        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
 
         mEthnicity = findViewById(R.id.Ethnicity);
         mGender = findViewById(R.id.Gender);
@@ -331,7 +335,7 @@ public class Demographics extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intentLoadNewActivity = new Intent(Demographics.this, PHQ9.class);
-                        //intentLoadNewActivity.putExtra("", mDemographics);
+                        intentLoadNewActivity.putExtra("mInfo", mInfo);
                         startActivity(intentLoadNewActivity);
                     }
                 });

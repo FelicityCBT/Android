@@ -22,11 +22,15 @@ public class TermsAndConditions extends AppCompatActivity {
         mAcceptButton = (Button)findViewById(R.id.yesBtn);
         mDeclineButton = (Button) findViewById(R.id.noBtn);
 
+        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
+
+
         mAcceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentLoadNewActivity = new Intent(TermsAndConditions.this,
                         Login.class);
+                mInfo.put("acceptedT&C", "True");
                 intentLoadNewActivity.putExtra("mInfo", mInfo);
                 startActivity(intentLoadNewActivity);
             }
@@ -36,6 +40,7 @@ public class TermsAndConditions extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                mInfo.put("acceptedT&C", "False");
                 finish();
                 System.exit(0);
             }
