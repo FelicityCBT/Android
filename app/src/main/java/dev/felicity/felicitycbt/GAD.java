@@ -70,90 +70,21 @@ public class GAD extends AppCompatActivity {
                         break;
                     }
                     int q_score=group.indexOfChild(findViewById(group.getCheckedRadioButtonId()));
+                    // TODO: Fix Prefer Not To Say --> If user says this, they are ineligible for the study
                     if(q_score == 4) q_score = 0; // "Prefer Not To Say" is scored as a 0
                     score = score + q_score;
                     String key= "GAD7 question "+i;
-                    mInfo.put(key, q_score); // TODO: Uncomment
+                    mInfo.put(key, q_score);
 
                 }
 
                 // FOR NOW, just go to a temporary page
                 Intent intentLoadNewActivity = new Intent(GAD.this, Temp.class);
                 intentLoadNewActivity.putExtra("mInfo", mInfo);
+                intentLoadNewActivity.putExtra("PHQScore", (Integer)score);
+                intentLoadNewActivity.putExtra("GADScore", (Integer)score);
                 startActivity(intentLoadNewActivity);
 
-                if(!error){
-
-                    String ct = ""+score;
-                    //encryption/decryption
-                    String uid= FirebaseAuth.getInstance().getUid();
-                    Toast.makeText(GAD.this, uid, Toast.LENGTH_LONG);
-                    try {
-                        ct= EncUtil.encryptMsg(""+score, uid);
-                        Toast.makeText(GAD.this,ct,Toast.LENGTH_LONG).show();
-                        String uct=EncUtil.decryptMsg(ct, uid);
-                        mInfo.put("TotalScorePHQ", EncUtil.encryptMsg(""+ct, uid));
-                        Toast.makeText(GAD.this,uct,Toast.LENGTH_LONG).show();
-                    }
-                    catch(Exception e){
-                        Toast.makeText(GAD.this,e.toString(),Toast.LENGTH_LONG).show();
-                    }
-
-
-                    // Flags to determine if user is eligible
-                    boolean isUCSDStudent = false;
-                    boolean isOfAge = false;
-                    boolean hasValidPHQScore = false;
-                    boolean hasValidGADScore = false;
-
-                    // Get user's education level
-                    // Get reference to user's account to check eligibility
-                    final String id = mAuth.getInstance().getUid();
-                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference ref = database.getReference("Users/" + id + "/Demographics");
-                    // Attach listener to read the data
-                    ref.child("education level").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            String educationLevel = (String)dataSnapshot.getValue();
-                            try {
-                                String decryptedEducationLevel = EncUtil.decryptMsg(educationLevel, id);
-                                phqScore = (Integer)getIntent().getSerializableExtra("PHQScore");
-
-                                // User is eligible for the study
-
-                               // if(decryptedEducationLevel.equals("Yes, I attend UCSD"))
-
-
-
-
-                            } catch(Exception e) {
-
-                            }
-
-
-                            // THREE CASES FOR USER
-                            // User is eligible for Experiment
-
-
-                            // User is not eligible for Experiment
-
-                            // User may be in need of clinical assistance
-
-
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-
-
-
-
-
-                }
             }
         });
 
@@ -170,18 +101,5 @@ public class GAD extends AppCompatActivity {
 
     }
 
-    // User is eligible for Experiment
-    private void popUpEligible(Context context) {
-        Toast.makeText(context, "Eligible for Experiment", Toast.LENGTH_LONG);
-    }
 
-    // User is not eligible for Experiment
-    private void popUpIneligible(Context context) {
-        Toast.makeText(context, "Eligible for Experiment", Toast.LENGTH_LONG);
-    }
-
-    // User may be in need of clinical assistance
-    private void popUpWarning(Context context) {
-        Toast.makeText(context, "Eligible for Experiment", Toast.LENGTH_LONG);
-    }
 }

@@ -73,9 +73,6 @@ public class Login extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_login);
 
-        // TODO: There is a case where this might need to be re-initialized since the hashmap is only created when user sees welcome video
-        mInfo = (HashMap<String,Object>)getIntent().getSerializableExtra("mInfo");
-
         // Start WelcomeVideo if this is a first time user
         startFirstTime();
 
@@ -90,7 +87,6 @@ public class Login extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
 
-        mInfo = (HashMap<String, Object>)getIntent().getSerializableExtra("mInfo");
 
         //google sign in options and stuff
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -173,6 +169,7 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 if (!dataSnapshot.hasChild("Demographics")) { // Go to Demographics Flow
+                                    mInfo = new HashMap<String, Object>();
                                     Intent intentLoadNewActivity = new Intent(Login.this, ResearchIntro.class);
                                     intentLoadNewActivity.putExtra("mInfo", mInfo);
                                     startActivity(intentLoadNewActivity);
@@ -205,7 +202,6 @@ public class Login extends AppCompatActivity {
                 .getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
-            //show start activity
             startActivity(new Intent(Login.this, WelcomeVideo.class));
         }
 

@@ -61,6 +61,7 @@ public class PHQ9 extends AppCompatActivity {
                         break;
                     }
                     int q_score=group.indexOfChild(findViewById(group.getCheckedRadioButtonId()));
+                    // TODO: Fix Prefer Not To Say --> If user says this, they are ineligible for the study
                     // Check if "Prefer Not to Say was checked
                     if(q_score == 4) q_score = 0;
                     score = score + q_score;
@@ -68,38 +69,11 @@ public class PHQ9 extends AppCompatActivity {
                     mInfo.put(key, q_score); 
                 }
 
-//                for(int i=9; i<16;i++){ // GAD Questions
-//                    RadioGroup group= mRadioGroups[i];
-//                    if (group.getCheckedRadioButtonId() == -1)
-//                    {
-//                        Toast.makeText(PHQ9.this,"All questions must be answered",Toast.LENGTH_LONG).show();
-//                        error=true;
-//                        break;
-//                    }
-//                    int q_score=group.indexOfChild(findViewById(group.getCheckedRadioButtonId()));
-//                    score2=score2+q_score;
-//                    String key= "GAD7 question "+i;
-//                    mInfo.put(key, q_score);
-//                }
-
                 if(!error){
-
-
-                    //                    mInfo.put("TotalScorePHQ", EncUtil.encryptMsg(""+score, uid)); TODO: Uncomment
-
-//                    int lq_score=mRadioGroups[9].indexOfChild(findViewById(mRadioGroups[9].getCheckedRadioButtonId())); // Score on the last question
-
-//                    if(score<=14 && lq_score<=2) {
-//                        popDialog();
-//                    }
-//                    else{
-//                        popDialog1();
-//                    }
-
                     // Continue to GAD
                     Intent intentLoadNewActivity = new Intent(PHQ9.this, GAD.class);
                     intentLoadNewActivity.putExtra("mInfo", mInfo);
-                    intentLoadNewActivity.putExtra("PHQScore", score);
+                    intentLoadNewActivity.putExtra("PHQScore", (Integer)score);
                     startActivity(intentLoadNewActivity);
                 }
             }
@@ -115,45 +89,4 @@ public class PHQ9 extends AppCompatActivity {
         });
     }
 
-    // Pop Dialog if User is eligible for experiment
-    public void popDialog(){
-        ImageView image = new ImageView(this);
-        image.setImageResource(R.drawable.phq9_table);
-
-        AlertDialog.Builder builder =
-                new AlertDialog.Builder(this).setTitle("PHQ-9 Score").setMessage("Your Score: "+ score).setPositiveButton("Continue",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                Intent intentLoadNewActivity = new Intent(PHQ9.this, GAD.class);
-                                startActivity(intentLoadNewActivity);
-                                finish();
-                            }
-                        }).setView(image);
-        builder.create().show();
-    }
-
-    public void popDialog1(){
-        ImageView image = new ImageView(this);
-        image.setImageResource(R.drawable.phq9_table);
-
-        AlertDialog.Builder builder =
-                new AlertDialog.Builder(this).setMessage(R.string.screen_risk).setPositiveButton("Continue",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                Intent intentLoadNewActivity = new Intent(PHQ9.this, LandingPage.class); // TODO: Change to accommodate new LandingPages
-                                startActivity(intentLoadNewActivity);
-                                finish();
-                            }
-                        }).setNegativeButton("Exit",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
-                                finish();
-                                System.exit(0);
-                            }
-                        });
-        builder.create().show();
-    }
 }
