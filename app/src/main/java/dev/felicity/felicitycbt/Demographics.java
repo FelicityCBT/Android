@@ -161,6 +161,8 @@ public class Demographics extends AppCompatActivity {
             }
         });
 
+
+        // TODO: Fix bug where user can edit age AND click "Prefer Not To Say"
         mAge.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
